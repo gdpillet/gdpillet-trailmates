@@ -88,9 +88,9 @@ const EventCard = ({ event }: EventCardProps) => {
     <div className="grid grid-cols-[auto_1fr_1fr_1fr_1fr] gap-4 py-4 border-b border-border hover:bg-muted/30 transition-colors cursor-pointer items-center">
       {/* Time & Duration */}
       <div className="flex gap-3 items-center min-w-[200px]">
-        <div className="text-left w-16 flex-shrink-0">
+        <div className="text-left">
           <p className="font-semibold text-foreground">{event.startTime}</p>
-          <p className="text-sm text-muted-foreground whitespace-nowrap">{event.duration}</p>
+          <p className="text-sm text-muted-foreground">{event.duration}</p>
         </div>
 
         {/* Cover Image */}

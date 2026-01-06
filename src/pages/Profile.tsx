@@ -62,7 +62,7 @@ const Profile = () => {
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
   }, {
     id: 2,
-    text: "Excellent organisation and great company. Anna knows all the best trails!",
+    text: "Excellent organisation and great company. Gaston knows all the best trails!",
     author: "Marcus",
     event: "Zugspitze Trail",
     date: "May 2024",

@@ -55,7 +55,7 @@ const Profile = () => {
   };
   const reviews = [{
     id: 1,
-    text: 'Anna, thank you for organising an excellent "tramping trip". Certainly a fit and furious hike. See you on the next one',
+    text: 'Gaston, thank you for organising an excellent "tramping trip". Certainly a fit and furious hike. See you on the next one',
     author: "Karina",
     event: "Hochstaufen (1771m)",
     date: "June 2024",

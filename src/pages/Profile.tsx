@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Settings, MessageSquare, Mountain, Bike, MapPin, Calendar, Route, Award } from "lucide-react";
-
 const Profile = () => {
   const user = {
     name: "Anna",
@@ -23,43 +22,53 @@ const Profile = () => {
     viaFerrataActivities: 8,
     stats: {
       distance: "34km",
-      elevation: "3.982m",
+      elevation: "3.982m"
     },
-    activityBreakdown: [
-      { label: "Hiking", count: 43, icon: Mountain },
-      { label: "Cycling", count: 4, icon: Bike },
-    ],
-    difficultyLevels: [
-      { level: "T1", count: 0 },
-      { level: "T2", count: 34 },
-      { level: "T3", count: 23 },
-      { level: "T4", count: 3 },
-      { level: "T5", count: 15 },
-      { level: "T6", count: 4 },
-    ],
+    activityBreakdown: [{
+      label: "Hiking",
+      count: 43,
+      icon: Mountain
+    }, {
+      label: "Cycling",
+      count: 4,
+      icon: Bike
+    }],
+    difficultyLevels: [{
+      level: "T1",
+      count: 0
+    }, {
+      level: "T2",
+      count: 34
+    }, {
+      level: "T3",
+      count: 23
+    }, {
+      level: "T4",
+      count: 3
+    }, {
+      level: "T5",
+      count: 15
+    }, {
+      level: "T6",
+      count: 4
+    }]
   };
-
-  const reviews = [
-    {
-      id: 1,
-      text: 'Anna, thank you for organising an excellent "tramping trip". Certainly a fit and furious hike. See you on the next one',
-      author: "Karina",
-      event: "Hochstaufen (1771m)",
-      date: "June 2024",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-    },
-    {
-      id: 2,
-      text: "Excellent organisation and great company. Anna knows all the best trails!",
-      author: "Marcus",
-      event: "Zugspitze Trail",
-      date: "May 2024",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-    },
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const reviews = [{
+    id: 1,
+    text: 'Anna, thank you for organising an excellent "tramping trip". Certainly a fit and furious hike. See you on the next one',
+    author: "Karina",
+    event: "Hochstaufen (1771m)",
+    date: "June 2024",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+  }, {
+    id: 2,
+    text: "Excellent organisation and great company. Anna knows all the best trails!",
+    author: "Marcus",
+    event: "Zugspitze Trail",
+    date: "May 2024",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+  }];
+  return <div className="min-h-screen bg-background">
       <Header />
       
       <main className="pt-20 pb-16">
@@ -68,11 +77,7 @@ const Profile = () => {
           <div className="flex flex-col items-center text-center mb-8">
             <div className="relative mb-4">
               <div className="w-28 h-28 rounded-full overflow-hidden ring-4 ring-primary/20">
-                <img 
-                  src={user.avatar} 
-                  alt={user.name}
-                  className="w-full h-full object-cover"
-                />
+                <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                 <Award className="w-4 h-4 text-primary-foreground" />
@@ -80,10 +85,7 @@ const Profile = () => {
             </div>
             
             <div className="flex items-center gap-2 mb-2">
-              <button 
-                className="absolute top-24 right-4 md:right-8 p-2 text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Settings"
-              >
+              <button className="absolute top-24 right-4 md:right-8 p-2 text-muted-foreground hover:text-foreground transition-colors" aria-label="Settings">
                 <Settings className="w-5 h-5" />
               </button>
             </div>
@@ -105,9 +107,7 @@ const Profile = () => {
             {/* User Badges */}
             <div className="flex flex-wrap justify-center gap-2 mb-4">
               <Badge variant="outline" className="text-xs">{user.age} y.o.</Badge>
-              {user.badges.map((badge) => (
-                <Badge key={badge} variant="outline" className="text-xs">🌱 {badge}</Badge>
-              ))}
+              {user.badges.map(badge => <Badge key={badge} variant="outline" className="text-xs">🌱 {badge}</Badge>)}
               <Badge variant="outline" className="text-xs">🇩🇪 {user.location}</Badge>
             </div>
             
@@ -172,26 +172,16 @@ const Profile = () => {
                   </div>
                   
                   {/* Difficulty Levels */}
-                  <div className="flex justify-center gap-4">
-                    {user.difficultyLevels.map((diff) => (
-                      <div key={diff.level} className="flex flex-col items-center">
-                        <div 
-                          className="w-8 rounded-full mb-1 flex items-center justify-center text-xs font-bold text-primary-foreground"
-                          style={{ 
-                            height: `${Math.max(20, diff.count * 2)}px`,
-                            backgroundColor: diff.level === "T1" ? "hsl(var(--muted))" : 
-                                           diff.level === "T2" ? "hsl(160, 100%, 45%)" :
-                                           diff.level === "T3" ? "hsl(160, 100%, 40%)" :
-                                           diff.level === "T4" ? "hsl(45, 100%, 50%)" :
-                                           diff.level === "T5" ? "hsl(25, 100%, 50%)" :
-                                           "hsl(0, 85%, 60%)"
-                          }}
-                        >
+                  <div className="gap-4 flex items-end justify-center">
+                    {user.difficultyLevels.map(diff => <div key={diff.level} className="flex flex-col items-center">
+                        <div className="w-8 rounded-full mb-1 flex items-center justify-center text-xs font-bold text-primary-foreground" style={{
+                      height: `${Math.max(20, diff.count * 2)}px`,
+                      backgroundColor: diff.level === "T1" ? "hsl(var(--muted))" : diff.level === "T2" ? "hsl(160, 100%, 45%)" : diff.level === "T3" ? "hsl(160, 100%, 40%)" : diff.level === "T4" ? "hsl(45, 100%, 50%)" : diff.level === "T5" ? "hsl(25, 100%, 50%)" : "hsl(0, 85%, 60%)"
+                    }}>
                           {diff.level}
                         </div>
                         <span className="text-xs text-muted-foreground">{diff.count}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </TabsContent>
                 
@@ -218,19 +208,14 @@ const Profile = () => {
             </div>
             
             <div className="flex gap-4 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
-              {reviews.map((review) => (
-                <Card key={review.id} className="min-w-[280px] max-w-[320px] flex-shrink-0">
+              {reviews.map(review => <Card key={review.id} className="min-w-[280px] max-w-[320px] flex-shrink-0">
                   <CardContent className="p-4">
                     <p className="text-sm text-foreground mb-4 line-clamp-3">
                       {review.text}
                     </p>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full overflow-hidden">
-                        <img 
-                          src={review.avatar} 
-                          alt={review.author}
-                          className="w-full h-full object-cover"
-                        />
+                        <img src={review.avatar} alt={review.author} className="w-full h-full object-cover" />
                       </div>
                       <div>
                         <p className="text-sm font-medium">{review.author}</p>
@@ -240,8 +225,7 @@ const Profile = () => {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
           
@@ -253,28 +237,16 @@ const Profile = () => {
             
             <Tabs defaultValue="upcoming" className="w-full">
               <TabsList className="w-full justify-start mb-4 bg-transparent border-b border-border rounded-none h-auto p-0">
-                <TabsTrigger 
-                  value="upcoming" 
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-2"
-                >
+                <TabsTrigger value="upcoming" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-2">
                   Upcoming | 2
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="recent"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-2"
-                >
+                <TabsTrigger value="recent" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-2">
                   Recent | 1
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="past"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-2"
-                >
+                <TabsTrigger value="past" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-2">
                   Past | 60
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="organised"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-2"
-                >
+                <TabsTrigger value="organised" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-2">
                   Organised | 43
                 </TabsTrigger>
               </TabsList>
@@ -300,8 +272,6 @@ const Profile = () => {
       </main>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Profile;

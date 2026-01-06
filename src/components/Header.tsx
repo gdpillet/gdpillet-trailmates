@@ -3,6 +3,7 @@ import { Plus, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import profileImage from "@/assets/profile-gaston.jpeg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,7 +54,7 @@ const Header = () => {
             <Link to="/profile" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-full">
               <div className="w-10 h-10 rounded-full bg-muted overflow-hidden ring-2 ring-border hover:ring-primary transition-colors">
                 <img 
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" 
+                  src={profileImage} 
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
@@ -66,7 +67,7 @@ const Header = () => {
             <Link to="/profile" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-full">
               <div className="w-8 h-8 rounded-full bg-muted overflow-hidden ring-2 ring-border">
                 <img 
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" 
+                  src={profileImage} 
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />

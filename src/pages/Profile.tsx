@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Settings, MessageSquare, Mountain, Bike, MapPin, Calendar, Route, Award } from "lucide-react";
+import profileImage from "@/assets/profile-gaston.jpeg";
+
 const Profile = () => {
   const user = {
     name: "Gastón",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face",
+    avatar: profileImage,
     level: "Trail Rookie",
     reviews: 34,
     age: 32,

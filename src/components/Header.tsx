@@ -44,22 +44,42 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Button & Profile */}
           <div className="hidden md:flex items-center gap-4">
             <Button variant="default" size="default" className="gap-2">
               <Plus className="w-4 h-4" />
               Add Event
             </Button>
+            <Link to="/profile" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-full">
+              <div className="w-10 h-10 rounded-full bg-muted overflow-hidden ring-2 ring-border hover:ring-primary transition-colors">
+                <img 
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" 
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Profile & Menu Toggle */}
+          <div className="md:hidden flex items-center gap-2">
+            <Link to="/profile" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-full">
+              <div className="w-8 h-8 rounded-full bg-muted overflow-hidden ring-2 ring-border">
+                <img 
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" 
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </Link>
+            <button
+              className="p-2 text-foreground"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

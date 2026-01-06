@@ -13,7 +13,7 @@ const Profile = () => {
     reviews: 34,
     age: 32,
     badges: ["Sustainer"],
-    location: "Based in Germany",
+    location: "🇪🇸 Based in Spain",
     experience: "5 years hiking",
     eventsOrganised: 43,
     hikesCompleted: 61,
@@ -108,7 +108,7 @@ const Profile = () => {
             <div className="flex flex-wrap justify-center gap-2 mb-4">
               <Badge variant="outline" className="text-xs">{user.age} y.o.</Badge>
               {user.badges.map(badge => <Badge key={badge} variant="outline" className="text-xs">🌱 {badge}</Badge>)}
-              <Badge variant="outline" className="text-xs">🇩🇪 {user.location}</Badge>
+              <Badge variant="outline" className="text-xs">{user.location}</Badge>
             </div>
             
             {/* Stats Badges */}

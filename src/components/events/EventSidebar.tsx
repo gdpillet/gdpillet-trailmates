@@ -167,7 +167,7 @@ const SidebarEventCard = ({ event }: { event: SidebarEventData }) => (
 const EventSidebar = () => {
   return (
     <aside className="w-80 flex-shrink-0">
-      <Card className="sticky top-24 bg-muted/30 border-border">
+      <Card className="bg-muted/30 border-border">
         <CardHeader className="pb-3">
           <CardTitle className="text-lg font-semibold">
             Your upcoming events

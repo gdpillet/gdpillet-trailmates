@@ -157,7 +157,7 @@ const Routes = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
 
-      <main className="flex-1" id="main-content">
+      <main className="flex-1 pt-16 md:pt-20" id="main-content">
         {/* Hero Section */}
         <section className="bg-secondary/30 py-10 md:py-16" aria-labelledby="routes-heading">
           <div className="section-container">

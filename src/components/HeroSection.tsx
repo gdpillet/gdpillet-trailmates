@@ -1,91 +1,92 @@
 import { Search, MapPin } from "lucide-react";
+import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import heroImage from "@/assets/hero-hiking.jpg";
+import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20">
+    <HeroHighlight containerClassName="min-h-[90vh] pt-20">
       <div className="section-container w-full">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 animate-fade-in">
-            <div className="space-y-4">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium">
-                Join 50,000+ outdoor enthusiasts
-              </span>
-              <h1 className="heading-xl text-foreground">
-                Let the Adventure{" "}
-                <span className="text-primary">Begin</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-                Connect with fellow hikers, discover breathtaking trails, and create unforgettable memories together.
-              </p>
-            </div>
+        <div className="flex flex-col items-center text-center space-y-8">
+          {/* Badge */}
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium"
+          >
+            Join 50,000+ outdoor enthusiasts
+          </motion.span>
 
-            {/* Search Bar */}
-            <div className="bg-card rounded-2xl p-2 shadow-card border border-border max-w-xl">
-              <div className="flex flex-col sm:flex-row gap-2">
-                <div className="relative flex-1">
-                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                  <Input
-                    type="text"
-                    placeholder="Search location or trail..."
-                    className="pl-10 h-12 border-0 bg-secondary/50 focus-visible:ring-1 focus-visible:ring-primary"
-                  />
-                </div>
-                <Button size="lg" className="h-12 px-6 gap-2">
-                  <Search className="w-4 h-4" />
-                  Search
-                </Button>
-              </div>
-            </div>
+          {/* Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: [20, -5, 0] }}
+            transition={{ duration: 0.5, ease: [0.4, 0.0, 0.2, 1], delay: 0.2 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground max-w-4xl leading-tight"
+          >
+            Let the Adventure{" "}
+            <Highlight className="text-foreground">Begin</Highlight>
+          </motion.h1>
 
-            {/* Stats */}
-            <div className="flex flex-wrap gap-8 pt-4">
-              <div>
-                <p className="text-3xl font-bold text-foreground">2,500+</p>
-                <p className="text-muted-foreground text-sm">Active Routes</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-foreground">180+</p>
-                <p className="text-muted-foreground text-sm">Communities</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-foreground">12K+</p>
-                <p className="text-muted-foreground text-sm">Events Hosted</p>
-              </div>
-            </div>
-          </div>
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl"
+          >
+            Connect with fellow hikers, discover breathtaking trails, and create unforgettable memories together.
+          </motion.p>
 
-          {/* Right Image */}
-          <div className="relative lg:h-[600px] animate-slide-in-right" style={{ animationDelay: "0.2s" }}>
-            <div className="relative h-[400px] lg:h-full rounded-3xl overflow-hidden shadow-card-hover">
-              <img
-                src={heroImage}
-                alt="Hikers on mountain trail at sunrise"
-                className="w-full h-full object-cover"
-              />
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
-            </div>
-            
-            {/* Floating card */}
-            <div className="absolute -bottom-4 -left-4 lg:bottom-8 lg:-left-8 bg-card rounded-xl p-4 shadow-card-hover border border-border">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
-                  <span className="text-2xl">🏔️</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Next Adventure</p>
-                  <p className="text-sm text-muted-foreground">Swiss Alps, Jan 15</p>
-                </div>
+          {/* Search Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="bg-card rounded-2xl p-2 shadow-card border border-border w-full max-w-xl"
+          >
+            <div className="flex flex-col sm:flex-row gap-2">
+              <div className="relative flex-1">
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Search location or trail..."
+                  className="pl-10 h-12 border-0 bg-secondary/50 focus-visible:ring-1 focus-visible:ring-primary"
+                  aria-label="Search location or trail"
+                />
               </div>
+              <Button size="lg" className="h-12 px-6 gap-2">
+                <Search className="w-4 h-4" aria-hidden="true" />
+                Search
+              </Button>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex flex-wrap justify-center gap-8 pt-4"
+          >
+            <div>
+              <p className="text-3xl font-bold text-foreground">2,500+</p>
+              <p className="text-muted-foreground text-sm">Active Routes</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-foreground">180+</p>
+              <p className="text-muted-foreground text-sm">Communities</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-foreground">12K+</p>
+              <p className="text-muted-foreground text-sm">Events Hosted</p>
+            </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </HeroHighlight>
   );
 };
 

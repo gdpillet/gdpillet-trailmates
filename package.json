@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.2.7",
-    "@fontsource/libre-baskerville": "^5.2.10",
+    "@fontsource/libre-franklin": "^5.2.8",
     "@fontsource/lora": "^5.2.8",
     "@fontsource/mulish": "^5.2.8",
     "@hookform/resolvers": "^3.10.0",

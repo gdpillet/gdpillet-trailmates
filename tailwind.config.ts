@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Libre Baskerville', 'serif'],
+        sans: ['Libre Franklin', 'ui-sans-serif', 'sans-serif', 'system-ui'],
         serif: ['Lora', 'serif'],
         mono: ['IBM Plex Mono', 'monospace'],
       },

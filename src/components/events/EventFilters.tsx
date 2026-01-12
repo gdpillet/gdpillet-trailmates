@@ -65,7 +65,6 @@ const EventFilters = ({
       <Select value={activity} onValueChange={onActivityChange}>
         <SelectTrigger className="w-auto min-w-[140px] border-0 bg-transparent hover:bg-secondary gap-2">
           <SelectValue placeholder="All activities" />
-          <ChevronDown className="w-4 h-4 text-muted-foreground" />
         </SelectTrigger>
         <SelectContent>
           {activities.map((act) => (

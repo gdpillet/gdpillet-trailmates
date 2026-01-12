@@ -56,6 +56,19 @@ const HeroSection = () => {
                 <p className="text-muted-foreground text-sm">Events Hosted</p>
               </div>
             </div>
+
+            {/* Next Adventure Card */}
+            <div className="bg-card rounded-xl p-4 shadow-card border border-border w-fit">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
+                  <span className="text-2xl">🏔️</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Next Adventure</p>
+                  <p className="text-sm text-muted-foreground">Swiss Alps, Jan 15</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right Image */}
@@ -68,19 +81,6 @@ const HeroSection = () => {
               />
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
-            </div>
-            
-            {/* Floating card */}
-            <div className="absolute -bottom-4 -left-4 lg:bottom-8 lg:-left-8 bg-card rounded-xl p-4 shadow-card-hover border border-border">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
-                  <span className="text-2xl">🏔️</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Next Adventure</p>
-                  <p className="text-sm text-muted-foreground">Swiss Alps, Jan 15</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

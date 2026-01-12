@@ -13,8 +13,10 @@ const EventList = ({ eventGroups }: EventListProps) => {
   return (
     <div className="flex-1">
       {/* Table Header */}
-      <div className="hidden md:grid grid-cols-[auto_1fr_1fr_1fr_1fr] gap-4 py-3 text-sm text-muted-foreground border-b border-border">
-        <div className="min-w-[200px]" />
+      <div className="hidden md:grid grid-cols-[60px_80px_180px_140px_1fr_1fr] gap-4 py-3 text-sm text-muted-foreground border-b border-border">
+        <div />
+        <div />
+        <div />
         <div>Departing from</div>
         <div>Activity</div>
         <div className="text-right">Participants</div>

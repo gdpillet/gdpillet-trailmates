@@ -85,39 +85,37 @@ const EventCard = ({ event }: EventCardProps) => {
   const isFull = availableSpots <= 0;
 
   return (
-    <div className="grid grid-cols-[auto_1fr_1fr_1fr_1fr] gap-4 py-4 border-b border-border hover:bg-muted/30 transition-colors cursor-pointer items-center">
+    <div className="grid grid-cols-1 md:grid-cols-[60px_80px_180px_140px_1fr_1fr] gap-4 py-4 border-b border-border hover:bg-muted/30 transition-colors cursor-pointer items-center">
       {/* Time & Duration */}
-      <div className="flex gap-3 items-center min-w-[200px]">
-        <div className="text-left">
-          <p className="font-semibold text-foreground">{event.startTime}</p>
-          <p className="text-sm text-muted-foreground">{event.duration}</p>
-        </div>
+      <div className="text-left">
+        <p className="font-semibold text-foreground">{event.startTime}</p>
+        <p className="text-sm text-muted-foreground">{event.duration}</p>
+      </div>
 
-        {/* Cover Image */}
-        <div className="w-16 h-12 rounded-lg overflow-hidden flex-shrink-0">
-          <img
-            src={event.coverImage}
-            alt={event.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
+      {/* Cover Image */}
+      <div className="w-16 h-12 rounded-lg overflow-hidden flex-shrink-0">
+        <img
+          src={event.coverImage}
+          alt={event.title}
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-        {/* Title & Organizer */}
-        <div className="min-w-[160px]">
-          <h3 className="font-semibold text-foreground line-clamp-2 leading-tight">
-            {event.title}
-          </h3>
-          <div className="flex items-center gap-1.5 mt-1">
-            <Avatar className="w-5 h-5">
-              <AvatarImage src={event.organizer.avatar} />
-              <AvatarFallback className="text-xs bg-muted">
-                {event.organizer.name.charAt(0)}
-              </AvatarFallback>
-            </Avatar>
-            <span className="text-sm text-muted-foreground">
-              by {event.organizer.name}
-            </span>
-          </div>
+      {/* Title & Organizer */}
+      <div className="min-w-0">
+        <h3 className="font-semibold text-foreground line-clamp-2 leading-tight">
+          {event.title}
+        </h3>
+        <div className="flex items-center gap-1.5 mt-1">
+          <Avatar className="w-5 h-5">
+            <AvatarImage src={event.organizer.avatar} />
+            <AvatarFallback className="text-xs bg-muted">
+              {event.organizer.name.charAt(0)}
+            </AvatarFallback>
+          </Avatar>
+          <span className="text-sm text-muted-foreground truncate">
+            by {event.organizer.name}
+          </span>
         </div>
       </div>
 

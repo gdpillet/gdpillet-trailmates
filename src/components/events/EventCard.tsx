@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -85,7 +86,10 @@ const EventCard = ({ event }: EventCardProps) => {
   const isFull = availableSpots <= 0;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[60px_80px_180px_140px_1fr_1fr] gap-4 py-4 border-b border-border hover:bg-muted/30 transition-colors cursor-pointer items-center">
+    <Link
+      to={`/events/${event.id}`}
+      className="grid grid-cols-1 md:grid-cols-[60px_80px_180px_140px_1fr_1fr] gap-4 py-4 border-b border-border hover:bg-muted/30 transition-colors cursor-pointer items-center"
+    >
       {/* Time & Duration */}
       <div className="text-left">
         <p className="font-semibold text-foreground">{event.startTime}</p>
@@ -183,7 +187,7 @@ const EventCard = ({ event }: EventCardProps) => {
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

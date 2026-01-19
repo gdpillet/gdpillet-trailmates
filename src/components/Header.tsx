@@ -74,7 +74,10 @@ const Header = () => {
                 <img 
                   src={profileImage} 
                   alt="Profile"
+                  width={40}
+                  height={40}
                   className="w-full h-full object-cover"
+                  decoding="async"
                 />
               </div>
             </Link>
@@ -98,7 +101,10 @@ const Header = () => {
                 <img 
                   src={profileImage} 
                   alt="Profile"
+                  width={32}
+                  height={32}
                   className="w-full h-full object-cover"
+                  decoding="async"
                 />
               </div>
             </Link>

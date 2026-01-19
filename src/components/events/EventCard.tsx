@@ -97,6 +97,10 @@ const EventCard = ({ event }: EventCardProps) => {
           <img
             src={event.coverImage}
             alt={event.title}
+            width={400}
+            height={225}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>
@@ -199,6 +203,10 @@ const EventCard = ({ event }: EventCardProps) => {
           <img
             src={event.coverImage}
             alt={event.title}
+            width={64}
+            height={48}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>

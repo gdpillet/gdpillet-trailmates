@@ -7,12 +7,15 @@ import RouteSortSelect from '@/components/routes/RouteSortSelect';
 import RouteFiltersPanel from '@/components/routes/RouteFiltersPanel';
 import ActiveFilterChips from '@/components/routes/ActiveFilterChips';
 import RouteCard from '@/components/routes/RouteCard';
+import DetailModal from '@/components/details/DetailModal';
+import RouteDetails from '@/components/details/RouteDetails';
 import { mockRoutes } from '@/data/routes';
 import { RouteFilters, SortOption, defaultFilters, HikingRoute } from '@/types/routes';
 
 const Routes = () => {
   const [filters, setFilters] = useState<RouteFilters>(defaultFilters);
   const [sortBy, setSortBy] = useState<SortOption>('popular');
+  const [selectedRoute, setSelectedRoute] = useState<HikingRoute | null>(null);
 
   // Count active filters
   const activeFilterCount = useMemo(() => {
@@ -219,9 +222,12 @@ const Routes = () => {
                   role="list"
                   aria-label="Hiking routes"
                 >
-                  {filteredRoutes.map((route) => (
+                {filteredRoutes.map((route) => (
                     <div key={route.id} role="listitem">
-                      <RouteCard route={route} />
+                      <RouteCard 
+                        route={route} 
+                        onClick={() => setSelectedRoute(route)}
+                      />
                     </div>
                   ))}
                 </div>
@@ -242,6 +248,15 @@ const Routes = () => {
       </main>
 
       <Footer />
+
+      {/* Route Details Modal */}
+      <DetailModal
+        open={!!selectedRoute}
+        onOpenChange={(open) => !open && setSelectedRoute(null)}
+        title={selectedRoute?.name || 'Route Details'}
+      >
+        {selectedRoute && <RouteDetails route={selectedRoute} />}
+      </DetailModal>
     </div>
   );
 };

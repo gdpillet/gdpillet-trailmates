@@ -105,8 +105,8 @@ const EventDetail = () => {
       <main className="pt-24 pb-16">
         <div className="section-container">
           <div className="flex flex-col lg:flex-row gap-6 items-start">
-            {/* Gallery Section */}
-            <div className="w-full lg:w-[379px] flex-shrink-0">
+            {/* Gallery Section - 2nd on mobile, 1st on desktop */}
+            <div className="w-full lg:w-[379px] flex-shrink-0 order-2 lg:order-1">
               <div className="flex flex-wrap gap-2.5">
                 {/* Main large image */}
                 <div className="w-full lg:w-[359px] h-[381px] rounded-[5px] overflow-hidden">
@@ -162,8 +162,8 @@ const EventDetail = () => {
               </button>
             </div>
 
-            {/* Main Content */}
-            <div className="flex-1 max-w-[602px] py-6">
+            {/* Main Content - 1st on mobile, 2nd on desktop */}
+            <div className="flex-1 max-w-full lg:max-w-[602px] py-6 order-1 lg:order-2">
               {/* Event Header */}
               <div className="flex flex-col gap-[52px] mb-10">
                 <div>
@@ -340,8 +340,8 @@ const EventDetail = () => {
               </div>
             </div>
 
-            {/* Sidebar */}
-            <div className="w-full lg:w-[400px] flex-shrink-0 lg:sticky lg:top-24">
+            {/* Sidebar - 3rd on mobile, 3rd on desktop */}
+            <div className="w-full lg:w-[400px] flex-shrink-0 lg:sticky lg:top-24 order-3">
               <div className="bg-muted rounded-[13px] p-6">
                 {/* Organizer */}
                 <div className="pb-6 border-b border-border mb-6">

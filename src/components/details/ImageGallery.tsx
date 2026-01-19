@@ -16,6 +16,10 @@ const ImageGallery = ({ images, title, showAddPhotos = true, onAddPhotos }: Imag
           <img
             src={images[0]}
             alt={title}
+            width={600}
+            height={600}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>
@@ -28,6 +32,10 @@ const ImageGallery = ({ images, title, showAddPhotos = true, onAddPhotos }: Imag
               <img
                 src={images[1]}
                 alt="Gallery image"
+                width={400}
+                height={250}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -39,6 +47,10 @@ const ImageGallery = ({ images, title, showAddPhotos = true, onAddPhotos }: Imag
                   <img
                     src={img}
                     alt="Gallery image"
+                    width={120}
+                    height={120}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -55,6 +67,10 @@ const ImageGallery = ({ images, title, showAddPhotos = true, onAddPhotos }: Imag
                 <img
                   src={img}
                   alt="Gallery image"
+                  width={200}
+                  height={150}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

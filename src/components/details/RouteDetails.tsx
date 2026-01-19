@@ -5,7 +5,6 @@ import DetailViewLayout from './DetailViewLayout';
 import ImageGallery from './ImageGallery';
 import OrganizerSection from './OrganizerSection';
 import PastEventsSection from './PastEventsSection';
-import DiscussionSection from './DiscussionSection';
 import RouteStatsGrid from './RouteStatsGrid';
 import { HikingRoute, Difficulty } from '@/types/routes';
 import profileGaston from '@/assets/profile-gaston.jpeg';
@@ -51,20 +50,6 @@ const samplePastEvents = [
   },
 ];
 
-const sampleDiscussion = [
-  {
-    author: 'Victor',
-    avatar: profileGaston,
-    text: "Do you think winter hiking boots or lighter trail running shoes would be better for this trek?",
-    time: '1d ago',
-  },
-  {
-    author: 'Anna',
-    avatar: profileGaston,
-    text: "I did this route last month. The views are absolutely stunning! Highly recommend.",
-    time: '2d ago',
-  },
-];
 
 interface RouteDetailsProps {
   route: HikingRoute;
@@ -218,12 +203,6 @@ const RouteDetails = ({ route }: RouteDetailsProps) => {
       />
       <div className="mt-6">
         <PastEventsSection events={samplePastEvents} />
-      </div>
-      <div className="mt-6">
-        <DiscussionSection 
-          comments={sampleDiscussion} 
-          totalComments={8}
-        />
       </div>
     </>
   );

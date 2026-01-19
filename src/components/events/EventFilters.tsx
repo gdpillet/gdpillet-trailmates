@@ -39,7 +39,7 @@ const EventFilters = ({
   onActivityChange,
 }: EventFiltersProps) => {
   return (
-    <div className="flex flex-wrap items-center gap-2 pb-6 border-b border-border">
+    <div className="flex flex-row items-center gap-2 pb-6 border-b border-border">
       <Button
         variant="secondary"
         size="sm"

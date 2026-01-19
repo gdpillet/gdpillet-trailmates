@@ -190,7 +190,7 @@ const Routes = () => {
 
         {/* Main Content */}
         <section className="section-container py-8 md:py-12">
-          <div className="flex gap-8">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
             {/* Filters Panel */}
             <RouteFiltersPanel
               filters={filters}
@@ -199,7 +199,7 @@ const Routes = () => {
             />
 
             {/* Routes Grid */}
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0 w-full">
               {/* Active Filters & Results Count */}
               <div className="mb-6 space-y-4">
                 <div className="flex items-center justify-between">

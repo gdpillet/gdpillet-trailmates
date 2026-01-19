@@ -20,6 +20,7 @@ import { HikingRoute, Difficulty, RouteType } from '@/types/routes';
 
 interface RouteCardProps {
   route: HikingRoute;
+  onClick?: () => void;
 }
 
 const difficultyConfig: Record<Difficulty, { label: string; className: string }> = {
@@ -49,10 +50,21 @@ const facilityIcons: Record<string, React.ElementType> = {
   'mountain-huts': Home,
 };
 
-const RouteCard = ({ route }: RouteCardProps) => {
+const RouteCard = ({ route, onClick }: RouteCardProps) => {
   const difficulty = difficultyConfig[route.difficulty];
   const routeType = routeTypeConfig[route.routeType];
   const RouteTypeIcon = routeType.icon;
+
+  const handleClick = () => {
+    onClick?.();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onClick?.();
+    }
+  };
 
   return (
     <article
@@ -60,12 +72,8 @@ const RouteCard = ({ route }: RouteCardProps) => {
       tabIndex={0}
       role="button"
       aria-label={`View details for ${route.name}`}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          // Handle route selection
-        }
-      }}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
     >
       {/* Image Section */}
       <div className="relative h-48 overflow-hidden">

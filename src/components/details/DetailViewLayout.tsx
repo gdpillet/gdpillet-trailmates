@@ -22,13 +22,13 @@ const DetailViewLayout = ({
       <main className="py-8 md:py-12">
         <div className="section-container">
           <div className="flex flex-col lg:flex-row gap-8 items-start">
-            {/* Gallery Section */}
-            <div className="w-full lg:w-[380px] flex-shrink-0">
+            {/* Gallery Section - 2nd on mobile, 1st on desktop */}
+            <div className="w-full lg:w-[380px] flex-shrink-0 order-2 lg:order-1">
               {gallery}
             </div>
 
-            {/* Main Content */}
-            <div className="flex-1 min-w-0 max-w-[650px]">
+            {/* Main Content - 1st on mobile, 2nd on desktop */}
+            <div className="flex-1 min-w-0 max-w-full lg:max-w-[650px] order-1 lg:order-2">
               {/* Header */}
               <div className="mb-8">
                 {header}
@@ -42,8 +42,8 @@ const DetailViewLayout = ({
               </div>
             </div>
 
-            {/* Sidebar */}
-            <aside className="w-full lg:w-[340px] flex-shrink-0 lg:sticky lg:top-6">
+            {/* Sidebar - 3rd on mobile, 3rd on desktop */}
+            <aside className="w-full lg:w-[340px] flex-shrink-0 lg:sticky lg:top-6 order-3">
               <div className="bg-muted rounded-xl p-6">
                 {sidebar}
               </div>

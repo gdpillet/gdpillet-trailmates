@@ -218,7 +218,7 @@ const Routes = () => {
               {/* Routes Grid */}
               {filteredRoutes.length > 0 ? (
                 <div
-                  className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6"
+                  className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
                   role="list"
                   aria-label="Hiking routes"
                 >

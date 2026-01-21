@@ -4,10 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Settings, MessageSquare, Mountain, Bike, MapPin, Calendar, Route, Award } from "lucide-react";
+import { Settings, MessageSquare, Mountain, Bike, MapPin, Calendar, Route, Award, Navigation, Loader2, X } from "lucide-react";
 import profileImage from "@/assets/profile-gaston.jpeg";
+import { useLocation } from "@/contexts/LocationContext";
 
 const Profile = () => {
+  const { coordinates, address, loading, error, permissionStatus, requestLocation, clearLocation } = useLocation();
+  
   const user = {
     name: "Gastón",
     avatar: profileImage,
@@ -112,6 +115,84 @@ const Profile = () => {
               {user.badges.map(badge => <Badge key={badge} variant="outline" className="text-xs">🌱 {badge}</Badge>)}
               <Badge variant="outline" className="text-xs">{user.location}</Badge>
             </div>
+            
+            {/* Location Card */}
+            <Card className="w-full max-w-md mb-4">
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                      coordinates ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'
+                    }`}>
+                      <Navigation className="w-5 h-5" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-sm font-medium text-foreground">
+                        {coordinates ? 'Your Location' : 'Share your location'}
+                      </p>
+                      {coordinates && address ? (
+                        <p className="text-sm text-muted-foreground flex items-center gap-1">
+                          <MapPin className="w-3 h-3" />
+                          {address}
+                        </p>
+                      ) : coordinates ? (
+                        <p className="text-xs text-muted-foreground">
+                          {coordinates[0].toFixed(4)}°, {coordinates[1].toFixed(4)}°
+                        </p>
+                      ) : (
+                        <p className="text-xs text-muted-foreground">
+                          Find trails near you
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {coordinates ? (
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={clearLocation}
+                      className="text-muted-foreground hover:text-destructive"
+                      aria-label="Remove location"
+                    >
+                      <X className="w-4 h-4" />
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={requestLocation}
+                      disabled={loading}
+                      className="gap-2"
+                    >
+                      {loading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Locating...
+                        </>
+                      ) : (
+                        <>
+                          <MapPin className="w-4 h-4" />
+                          Enable
+                        </>
+                      )}
+                    </Button>
+                  )}
+                </div>
+                
+                {error && (
+                  <p className="mt-3 text-xs text-destructive bg-destructive/10 rounded-md p-2">
+                    {error}
+                  </p>
+                )}
+                
+                {permissionStatus === 'denied' && !error && (
+                  <p className="mt-3 text-xs text-muted-foreground bg-muted rounded-md p-2">
+                    Location access was denied. Enable it in your browser settings to use this feature.
+                  </p>
+                )}
+              </CardContent>
+            </Card>
             
             {/* Stats Badges */}
             <div className="flex flex-wrap justify-center gap-2">

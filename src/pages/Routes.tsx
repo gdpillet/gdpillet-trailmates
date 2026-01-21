@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, Map, LayoutGrid, Navigation } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import RouteSearch from '@/components/routes/RouteSearch';
@@ -7,15 +7,21 @@ import RouteSortSelect from '@/components/routes/RouteSortSelect';
 import RouteFiltersPanel from '@/components/routes/RouteFiltersPanel';
 import ActiveFilterChips from '@/components/routes/ActiveFilterChips';
 import RouteCard from '@/components/routes/RouteCard';
+import RoutesMap from '@/components/routes/RoutesMap';
 import DetailModal from '@/components/details/DetailModal';
 import RouteDetails from '@/components/details/RouteDetails';
+import { Button } from '@/components/ui/button';
 import { mockRoutes } from '@/data/routes';
 import { RouteFilters, SortOption, defaultFilters, HikingRoute } from '@/types/routes';
+import { useLocation } from '@/contexts/LocationContext';
 
 const Routes = () => {
   const [filters, setFilters] = useState<RouteFilters>(defaultFilters);
   const [sortBy, setSortBy] = useState<SortOption>('popular');
   const [selectedRoute, setSelectedRoute] = useState<HikingRoute | null>(null);
+  const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
+  
+  const { coordinates: userLocation, loading: locationLoading, requestLocation, permissionStatus } = useLocation();
 
   // Count active filters
   const activeFilterCount = useMemo(() => {
@@ -198,15 +204,59 @@ const Routes = () => {
               activeFilterCount={activeFilterCount}
             />
 
-            {/* Routes Grid */}
+            {/* Routes Grid / Map */}
             <div className="flex-1 min-w-0 w-full">
-              {/* Active Filters & Results Count */}
+              {/* Active Filters, Results Count & View Toggle */}
               <div className="mb-6 space-y-4">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4 flex-wrap">
                   <p className="text-muted-foreground">
                     <span className="font-semibold text-foreground">{filteredRoutes.length}</span>{' '}
                     {filteredRoutes.length === 1 ? 'route' : 'routes'} found
                   </p>
+                  
+                  <div className="flex items-center gap-2">
+                    {/* Location button */}
+                    {permissionStatus !== 'granted' && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={requestLocation}
+                        disabled={locationLoading}
+                        className="gap-2"
+                      >
+                        <Navigation className="h-4 w-4" />
+                        {locationLoading ? 'Locating...' : 'Show my location'}
+                      </Button>
+                    )}
+                    
+                    {/* View toggle */}
+                    <div className="flex items-center rounded-lg border border-border p-1 bg-muted/50">
+                      <button
+                        onClick={() => setViewMode('grid')}
+                        className={`p-2 rounded-md transition-colors ${
+                          viewMode === 'grid' 
+                            ? 'bg-background text-foreground shadow-sm' 
+                            : 'text-muted-foreground hover:text-foreground'
+                        }`}
+                        aria-label="Grid view"
+                        aria-pressed={viewMode === 'grid'}
+                      >
+                        <LayoutGrid className="h-4 w-4" />
+                      </button>
+                      <button
+                        onClick={() => setViewMode('map')}
+                        className={`p-2 rounded-md transition-colors ${
+                          viewMode === 'map' 
+                            ? 'bg-background text-foreground shadow-sm' 
+                            : 'text-muted-foreground hover:text-foreground'
+                        }`}
+                        aria-label="Map view"
+                        aria-pressed={viewMode === 'map'}
+                      >
+                        <Map className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <ActiveFilterChips
                   filters={filters}
@@ -215,32 +265,48 @@ const Routes = () => {
                 />
               </div>
 
+              {/* Map View */}
+              {viewMode === 'map' && (
+                <div className="mb-6">
+                  <RoutesMap 
+                    routes={filteredRoutes}
+                    onRouteClick={setSelectedRoute}
+                    userLocation={userLocation}
+                    className="h-[500px] md:h-[600px]"
+                  />
+                </div>
+              )}
+
               {/* Routes Grid */}
-              {filteredRoutes.length > 0 ? (
-                <div
-                  className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
-                  role="list"
-                  aria-label="Hiking routes"
-                >
-                {filteredRoutes.map((route) => (
-                    <div key={route.id} role="listitem">
-                      <RouteCard 
-                        route={route} 
-                        onClick={() => setSelectedRoute(route)}
-                      />
+              {viewMode === 'grid' && (
+                <>
+                  {filteredRoutes.length > 0 ? (
+                    <div
+                      className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
+                      role="list"
+                      aria-label="Hiking routes"
+                    >
+                      {filteredRoutes.map((route) => (
+                        <div key={route.id} role="listitem">
+                          <RouteCard 
+                            route={route} 
+                            onClick={() => setSelectedRoute(route)}
+                          />
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-16">
-                  <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="h-8 w-8 text-muted-foreground" aria-hidden="true" />
-                  </div>
-                  <h3 className="font-semibold text-lg text-foreground mb-2">No routes found</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Try adjusting your filters or search term to find more routes.
-                  </p>
-                </div>
+                  ) : (
+                    <div className="text-center py-16">
+                      <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
+                        <MapPin className="h-8 w-8 text-muted-foreground" aria-hidden="true" />
+                      </div>
+                      <h3 className="font-semibold text-lg text-foreground mb-2">No routes found</h3>
+                      <p className="text-muted-foreground mb-4">
+                        Try adjusting your filters or search term to find more routes.
+                      </p>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>

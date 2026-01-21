@@ -23,6 +23,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.9,
     reviewCount: 342,
     description: 'Stunning trail beneath the infamous north face of the Eiger with panoramic Alpine views.',
+    coordinates: [46.5763, 8.0022],
   },
   {
     id: '2',
@@ -42,6 +43,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.8,
     reviewCount: 528,
     description: 'Iconic loop around the Three Peaks with dramatic rock formations and WWI history.',
+    coordinates: [46.6188, 12.3022],
   },
   {
     id: '3',
@@ -61,6 +63,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.7,
     reviewCount: 289,
     description: 'A beautiful canyon walk with towering cliffs, waterfalls, and lush forest.',
+    coordinates: [42.6406, -0.0542],
   },
   {
     id: '4',
@@ -80,6 +83,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.6,
     reviewCount: 456,
     description: 'Summit the UK\'s highest peak via the Mountain Track for rewarding views.',
+    coordinates: [56.7969, -5.0036],
   },
   {
     id: '5',
@@ -99,6 +103,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.9,
     reviewCount: 178,
     description: 'Classic Arctic trail through pristine wilderness and glacier-carved valleys.',
+    coordinates: [68.3494, 18.8306],
   },
   {
     id: '6',
@@ -118,6 +123,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.8,
     reviewCount: 612,
     description: 'A challenging stage crossing iconic mountain passes with stunning Mont Blanc views.',
+    coordinates: [45.9237, 6.8694],
   },
   {
     id: '7',
@@ -137,6 +143,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.5,
     reviewCount: 892,
     description: 'Scenic coastal trail linking five picturesque fishing villages.',
+    coordinates: [44.1269, 9.7101],
   },
   {
     id: '8',
@@ -156,6 +163,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.7,
     reviewCount: 134,
     description: 'Thrilling via ferrata with exposed ledges and iron ladders up dramatic rock faces.',
+    coordinates: [46.5406, 12.1383],
   },
   {
     id: '9',
@@ -175,6 +183,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.6,
     reviewCount: 203,
     description: 'Wild coastal trail along dramatic cliffs and hidden beaches.',
+    coordinates: [37.4316, -8.7950],
   },
   {
     id: '10',
@@ -194,6 +203,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.8,
     reviewCount: 267,
     description: 'Spectacular gorge trail with turquoise waters and dramatic canyon scenery.',
+    coordinates: [43.7631, 6.3277],
   },
   {
     id: '11',
@@ -213,6 +223,7 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.5,
     reviewCount: 345,
     description: 'Walk along the ancient Roman frontier with forts, turrets and stunning views.',
+    coordinates: [55.0238, -2.2617],
   },
   {
     id: '12',
@@ -232,5 +243,6 @@ export const mockRoutes: HikingRoute[] = [
     rating: 4.7,
     reviewCount: 521,
     description: 'The "Divine Gorge" carved into limestone with breathtaking vertical cliffs.',
+    coordinates: [43.2342, -4.9167],
   },
 ];

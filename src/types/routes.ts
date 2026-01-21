@@ -38,6 +38,7 @@ export interface HikingRoute {
   rating: number;
   reviewCount: number;
   description: string;
+  coordinates?: [number, number]; // [latitude, longitude]
 }
 
 export interface RouteFilters {

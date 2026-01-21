@@ -1,0 +1,81 @@
+{
+  "common": {
+    "search": "Search",
+    "viewAll": "View all",
+    "learnMore": "Learn more",
+    "joinNow": "Join now",
+    "readMore": "Read more"
+  },
+  "nav": {
+    "events": "Events",
+    "routes": "Routes",
+    "communities": "Communities",
+    "addEvent": "Add Event"
+  },
+  "hero": {
+    "badge": "Join 50,000+ outdoor enthusiasts",
+    "titleStart": "Let the Adventure",
+    "titleHighlight": "Begin",
+    "description": "Connect with fellow hikers, discover breathtaking trails, and create unforgettable memories together.",
+    "searchPlaceholder": "Search location or trail...",
+    "statsRoutes": "Active Routes",
+    "statsCommunities": "Communities",
+    "statsEvents": "Events Hosted",
+    "nextAdventure": "Next Adventure",
+    "nextAdventureDetails": "Swiss Alps, Jan 15"
+  },
+  "activities": {
+    "title": "Explore Activities",
+    "hiking": "Hiking",
+    "climbing": "Climbing",
+    "cycling": "Cycling",
+    "trailRunning": "Trail Running",
+    "waterSports": "Water Sports",
+    "skiing": "Skiing",
+    "camping": "Camping",
+    "photography": "Photography"
+  },
+  "mission": {
+    "badge": "Our Mission",
+    "title": "Built by adventurers, for adventurers",
+    "description": "We believe the outdoors are for everyone. TrailMates is a community-driven platform where hikers, climbers, cyclists, and outdoor enthusiasts connect, share experiences, and explore together — regardless of skill level or background.",
+    "guidelinesLink": "Read our community guidelines →",
+    "inclusiveTitle": "Inclusive Community",
+    "inclusiveDescription": "Everyone is welcome — from beginners taking their first steps to seasoned adventurers.",
+    "passionTitle": "Shared Passion",
+    "passionDescription": "Connect with people who share your love for nature and outdoor adventures.",
+    "safetyTitle": "Safety First",
+    "safetyDescription": "We prioritize trail safety, respect for nature, and looking out for one another."
+  },
+  "routes": {
+    "badge": "Featured Routes",
+    "title": "Popular routes to explore",
+    "viewAllRoutes": "View all routes",
+    "rating": "rating",
+    "duration": "duration"
+  },
+  "communities": {
+    "badge": "Communities",
+    "title": "Find your local crew",
+    "viewAllCommunities": "View all communities",
+    "members": "members"
+  },
+  "pastEvents": {
+    "badge": "Past Events",
+    "title": "Adventures we've shared",
+    "attendees": "attendees"
+  },
+  "footer": {
+    "tagline": "Connecting outdoor enthusiasts worldwide. Find your adventure, meet your crew.",
+    "platform": "Platform",
+    "company": "Company",
+    "about": "About",
+    "contactUs": "Contact us",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "imprint": "Imprint",
+    "copyright": "© 2026 TrailMates. All rights reserved.",
+    "madeWith": "Made with",
+    "forAdventurers": "for adventurers everywhere"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "common": {
+    "search": "Cerca",
+    "viewAll": "Vedi tutto",
+    "learnMore": "Scopri di più",
+    "joinNow": "Unisciti ora",
+    "readMore": "Leggi di più"
+  },
+  "nav": {
+    "events": "Eventi",
+    "routes": "Percorsi",
+    "communities": "Comunità",
+    "addEvent": "Aggiungi evento"
+  },
+  "hero": {
+    "badge": "Unisciti a oltre 50.000 appassionati di outdoor",
+    "titleStart": "Lascia che l'Avventura",
+    "titleHighlight": "Cominci",
+    "description": "Connettiti con altri escursionisti, scopri sentieri mozzafiato e crea ricordi indimenticabili insieme.",
+    "searchPlaceholder": "Cerca luogo o sentiero...",
+    "statsRoutes": "Percorsi attivi",
+    "statsCommunities": "Comunità",
+    "statsEvents": "Eventi organizzati",
+    "nextAdventure": "Prossima avventura",
+    "nextAdventureDetails": "Alpi svizzere, 15 gennaio"
+  },
+  "activities": {
+    "title": "Esplora le attività",
+    "hiking": "Escursionismo",
+    "climbing": "Arrampicata",
+    "cycling": "Ciclismo",
+    "trailRunning": "Trail Running",
+    "waterSports": "Sport acquatici",
+    "skiing": "Sci",
+    "camping": "Campeggio",
+    "photography": "Fotografia"
+  },
+  "mission": {
+    "badge": "La Nostra Missione",
+    "title": "Creato da avventurieri, per avventurieri",
+    "description": "Crediamo che l'outdoor sia per tutti. TrailMates è una piattaforma guidata dalla comunità dove escursionisti, scalatori, ciclisti e appassionati di outdoor si connettono, condividono esperienze ed esplorano insieme — indipendentemente dal livello di esperienza o dal background.",
+    "guidelinesLink": "Leggi le nostre linee guida della comunità →",
+    "inclusiveTitle": "Comunità Inclusiva",
+    "inclusiveDescription": "Tutti sono i benvenuti — dai principianti che muovono i primi passi agli avventurieri esperti.",
+    "passionTitle": "Passione Condivisa",
+    "passionDescription": "Connettiti con persone che condividono il tuo amore per la natura e le avventure all'aria aperta.",
+    "safetyTitle": "Sicurezza Prima di Tutto",
+    "safetyDescription": "Diamo priorità alla sicurezza sui sentieri, al rispetto della natura e all'aiuto reciproco."
+  },
+  "routes": {
+    "badge": "Percorsi in evidenza",
+    "title": "Percorsi popolari da esplorare",
+    "viewAllRoutes": "Vedi tutti i percorsi",
+    "rating": "valutazione",
+    "duration": "durata"
+  },
+  "communities": {
+    "badge": "Comunità",
+    "title": "Trova il tuo gruppo locale",
+    "viewAllCommunities": "Vedi tutte le comunità",
+    "members": "membri"
+  },
+  "pastEvents": {
+    "badge": "Eventi passati",
+    "title": "Le avventure che abbiamo condiviso",
+    "attendees": "partecipanti"
+  },
+  "footer": {
+    "tagline": "Connettere gli appassionati di outdoor in tutto il mondo. Trova la tua avventura, incontra il tuo gruppo.",
+    "platform": "Piattaforma",
+    "company": "Azienda",
+    "about": "Chi siamo",
+    "contactUs": "Contattaci",
+    "privacyPolicy": "Informativa sulla privacy",
+    "termsOfService": "Termini di servizio",
+    "imprint": "Note legali",
+    "copyright": "© 2026 TrailMates. Tutti i diritti riservati.",
+    "madeWith": "Fatto con",
+    "forAdventurers": "per gli avventurieri di tutto il mondo"
+  }
+}

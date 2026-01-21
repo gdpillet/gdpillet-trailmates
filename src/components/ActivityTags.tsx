@@ -1,19 +1,21 @@
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const activities = [
-  { name: "Hiking", emoji: "🥾", color: "bg-emerald-100" },
-  { name: "Climbing", emoji: "🧗", color: "bg-orange-100" },
-  { name: "Cycling", emoji: "🚴", color: "bg-blue-100" },
-  { name: "Trail Running", emoji: "🏃", color: "bg-rose-100" },
-  { name: "Water Sports", emoji: "🛶", color: "bg-cyan-100" },
-  { name: "Skiing", emoji: "⛷️", color: "bg-indigo-100" },
-  { name: "Camping", emoji: "🏕️", color: "bg-amber-100" },
-  { name: "Photography", emoji: "📸", color: "bg-purple-100" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ActivityTags = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
+
+  const activities = [
+    { name: t.activities.hiking, emoji: "🥾", color: "bg-emerald-100" },
+    { name: t.activities.climbing, emoji: "🧗", color: "bg-orange-100" },
+    { name: t.activities.cycling, emoji: "🚴", color: "bg-blue-100" },
+    { name: t.activities.trailRunning, emoji: "🏃", color: "bg-rose-100" },
+    { name: t.activities.waterSports, emoji: "🛶", color: "bg-cyan-100" },
+    { name: t.activities.skiing, emoji: "⛷️", color: "bg-indigo-100" },
+    { name: t.activities.camping, emoji: "🏕️", color: "bg-amber-100" },
+    { name: t.activities.photography, emoji: "📸", color: "bg-purple-100" },
+  ];
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -29,17 +31,19 @@ const ActivityTags = () => {
     <section className="section-padding bg-secondary/30">
       <div className="section-container">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="heading-md text-foreground">Explore Activities</h2>
+          <h2 className="heading-md text-foreground">{t.activities.title}</h2>
           <div className="flex gap-2">
             <button
               onClick={() => scroll("left")}
               className="p-2 rounded-full bg-card border border-border hover:bg-accent transition-colors"
+              aria-label="Scroll left"
             >
               <ChevronLeft className="w-5 h-5 text-foreground" />
             </button>
             <button
               onClick={() => scroll("right")}
               className="p-2 rounded-full bg-card border border-border hover:bg-accent transition-colors"
+              aria-label="Scroll right"
             >
               <ChevronRight className="w-5 h-5 text-foreground" />
             </button>

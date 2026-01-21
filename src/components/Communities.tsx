@@ -1,5 +1,6 @@
 import { Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const communities = [
   { city: "Munich", country: "Germany", members: 3420, flag: "🇩🇪" },
@@ -11,20 +12,22 @@ const communities = [
 ];
 
 const Communities = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="section-padding">
       <div className="section-container">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-4">
-              Communities
+              {t.communities.badge}
             </span>
             <h2 className="heading-lg text-foreground">
-              Find your local crew
+              {t.communities.title}
             </h2>
           </div>
           <Button variant="outline" className="self-start sm:self-auto">
-            View all communities
+            {t.communities.viewAllCommunities}
           </Button>
         </div>
 

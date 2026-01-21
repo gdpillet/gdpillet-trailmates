@@ -166,10 +166,10 @@ function RoutesMap({ routes, onRouteClick, userLocation, className = '' }: Route
   }, [routesWithCoords, userLocation, onRouteClick]);
 
   return (
-    <div className={`rounded-xl overflow-hidden border border-border shadow-lg ${className}`}>
+    <div className={`rounded-xl overflow-hidden border border-border shadow-lg relative z-0 ${className}`}>
       <div 
         ref={containerRef} 
-        className="h-full w-full"
+        className="h-full w-full [&_.leaflet-pane]:z-[1] [&_.leaflet-control]:z-[2]"
         style={{ minHeight: '280px' }}
       />
     </div>

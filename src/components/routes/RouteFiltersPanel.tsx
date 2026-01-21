@@ -315,7 +315,7 @@ const RouteFiltersPanel = ({ filters, onChange, activeFilterCount }: RouteFilter
             )}
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-[320px] p-0">
+        <SheetContent side="left" className="w-[320px] p-0 z-[60]">
           <SheetHeader className="p-4 border-b">
             <div className="flex items-center justify-between">
               <SheetTitle>Filters</SheetTitle>

@@ -12,33 +12,39 @@ import { Language } from '@/locales';
 const FlagIcon = ({ code, className = "" }: { code: Language; className?: string }) => {
   const flags: Record<Language, React.ReactNode> = {
     en: (
-      <svg viewBox="0 0 60 40" className={className} aria-hidden="true">
-        <rect width="60" height="40" fill="#012169"/>
-        <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" strokeWidth="6"/>
-        <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" strokeWidth="4" clipPath="polygon(30 0, 30 20, 60 20, 60 0, 30 0)"/>
-        <path d="M30,0 V40 M0,20 H60" stroke="#fff" strokeWidth="10"/>
-        <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" strokeWidth="6"/>
+      <svg viewBox="0 0 60 30" className={className} aria-hidden="true">
+        <clipPath id="uk-clip">
+          <rect width="60" height="30"/>
+        </clipPath>
+        <g clipPath="url(#uk-clip)">
+          <rect width="60" height="30" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
+          <path d="M0,0 L60,30" stroke="#C8102E" strokeWidth="2"/>
+          <path d="M60,0 L0,30" stroke="#C8102E" strokeWidth="2"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#fff" strokeWidth="10"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" strokeWidth="6"/>
+        </g>
       </svg>
     ),
     fr: (
-      <svg viewBox="0 0 60 40" className={className} aria-hidden="true">
-        <rect width="20" height="40" fill="#002395"/>
-        <rect x="20" width="20" height="40" fill="#fff"/>
-        <rect x="40" width="20" height="40" fill="#ED2939"/>
+      <svg viewBox="0 0 3 2" className={className} aria-hidden="true">
+        <rect width="1" height="2" fill="#002395"/>
+        <rect x="1" width="1" height="2" fill="#fff"/>
+        <rect x="2" width="1" height="2" fill="#ED2939"/>
       </svg>
     ),
     it: (
-      <svg viewBox="0 0 60 40" className={className} aria-hidden="true">
-        <rect width="20" height="40" fill="#009246"/>
-        <rect x="20" width="20" height="40" fill="#fff"/>
-        <rect x="40" width="20" height="40" fill="#CE2B37"/>
+      <svg viewBox="0 0 3 2" className={className} aria-hidden="true">
+        <rect width="1" height="2" fill="#009246"/>
+        <rect x="1" width="1" height="2" fill="#fff"/>
+        <rect x="2" width="1" height="2" fill="#CE2B37"/>
       </svg>
     ),
     es: (
-      <svg viewBox="0 0 60 40" className={className} aria-hidden="true">
-        <rect width="60" height="10" fill="#AA151B"/>
-        <rect y="10" width="60" height="20" fill="#F1BF00"/>
-        <rect y="30" width="60" height="10" fill="#AA151B"/>
+      <svg viewBox="0 0 3 2" className={className} aria-hidden="true">
+        <rect width="3" height="0.5" fill="#AA151B"/>
+        <rect y="0.5" width="3" height="1" fill="#F1BF00"/>
+        <rect y="1.5" width="3" height="0.5" fill="#AA151B"/>
       </svg>
     ),
   };
@@ -58,7 +64,9 @@ const LanguageSwitcher = () => {
           className="gap-2 px-2"
           aria-label="Select language"
         >
-          <FlagIcon code={language} className="w-5 h-4 rounded-sm border border-border" />
+          <span className="w-5 h-4 rounded-[2px] overflow-hidden shadow-sm ring-1 ring-border/50 flex-shrink-0">
+            <FlagIcon code={language} className="w-full h-full" />
+          </span>
           <span className="hidden sm:inline text-sm">{languages.find(l => l.code === language)?.nativeName}</span>
         </Button>
       </DropdownMenuTrigger>
@@ -69,7 +77,9 @@ const LanguageSwitcher = () => {
             onClick={() => setLanguage(lang.code as Language)}
             className={`flex items-center gap-3 cursor-pointer ${language === lang.code ? 'bg-accent' : ''}`}
           >
-            <FlagIcon code={lang.code as Language} className="w-5 h-4 rounded-sm border border-border" />
+            <span className="w-5 h-4 rounded-[2px] overflow-hidden shadow-sm ring-1 ring-border/50 flex-shrink-0">
+              <FlagIcon code={lang.code as Language} className="w-full h-full" />
+            </span>
             <span>{lang.nativeName}</span>
             <span className="text-muted-foreground text-sm">({lang.name})</span>
           </DropdownMenuItem>

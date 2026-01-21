@@ -70,7 +70,7 @@ const LanguageSwitcher = () => {
           <span className="hidden sm:inline text-sm">{languages.find(l => l.code === language)?.nativeName}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-popover z-50">
+      <DropdownMenuContent align="end" className="bg-card border border-border shadow-lg z-[100]">
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}

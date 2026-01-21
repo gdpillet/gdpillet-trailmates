@@ -4,7 +4,16 @@
     "viewAll": "Ver todo",
     "learnMore": "Saber más",
     "joinNow": "Únete ahora",
-    "readMore": "Leer más"
+    "readMore": "Leer más",
+    "filters": "Filtros",
+    "clearAll": "Borrar todo",
+    "clear": "Borrar",
+    "showMyLocation": "Mostrar mi ubicación",
+    "locating": "Localizando...",
+    "routesFound": "rutas encontradas",
+    "routeFound": "ruta encontrada",
+    "noRoutesFound": "No se encontraron rutas",
+    "noRoutesFoundDescription": "Intenta ajustar tus filtros o término de búsqueda para encontrar más rutas."
   },
   "nav": {
     "events": "Eventos",
@@ -53,6 +62,73 @@
     "viewAllRoutes": "Ver todas las rutas",
     "rating": "calificación",
     "duration": "duración"
+  },
+  "routesPage": {
+    "badge": "Descubre rutas",
+    "title": "Encuentra tu sendero perfecto",
+    "description": "Explora nuestra colección de rutas de senderismo por toda Europa. Filtra por dificultad, duración y características para encontrar tu aventura ideal.",
+    "searchPlaceholder": "Buscar rutas...",
+    "trailStartingPoints": "Puntos de inicio de senderos",
+    "sortBy": {
+      "popular": "Más populares",
+      "shortestDuration": "Duración más corta",
+      "lowestElevation": "Menor desnivel",
+      "highestDifficulty": "Mayor dificultad"
+    },
+    "filters": {
+      "difficulty": "Dificultad",
+      "technicalGrade": "Grado técnico (CAS)",
+      "distance": "Distancia",
+      "duration": "Duración",
+      "elevationGain": "Desnivel positivo",
+      "highlights": "Puntos de interés",
+      "routeFeatures": "Características de la ruta",
+      "facilities": "Instalaciones",
+      "routeType": "Tipo de ruta"
+    },
+    "difficulty": {
+      "easy": "Fácil",
+      "moderate": "Moderado",
+      "hard": "Difícil",
+      "expert": "Experto"
+    },
+    "highlights": {
+      "lakes": "Lagos",
+      "rivers": "Ríos",
+      "waterfalls": "Cascadas",
+      "coastline": "Costa",
+      "ruins": "Ruinas",
+      "historicalSites": "Sitios históricos"
+    },
+    "features": {
+      "viaFerrata": "Vía Ferrata",
+      "climbing": "Escalada",
+      "canyoning": "Barranquismo",
+      "ridges": "Crestas",
+      "mountainPasses": "Puertos de montaña",
+      "avoidMainRoads": "Evitar carreteras principales"
+    },
+    "facilities": {
+      "restaurants": "Restaurantes",
+      "mountainHuts": "Refugios de montaña"
+    },
+    "routeTypes": {
+      "loop": "Circular",
+      "outAndBack": "Ida y vuelta",
+      "pointToPoint": "Punto a punto"
+    }
+  },
+  "eventsPage": {
+    "title": "Eventos",
+    "filterByLocation": "Filtrar por ubicación",
+    "filterByActivity": "Filtrar por actividad",
+    "allLocations": "Todas las ubicaciones",
+    "allActivities": "Todas las actividades",
+    "tomorrow": "Mañana",
+    "participants": "participantes",
+    "waitlist": "lista de espera",
+    "full": "Completo",
+    "spotsLeft": "plazas disponibles"
   },
   "communities": {
     "badge": "Comunidades",

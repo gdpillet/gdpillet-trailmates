@@ -4,7 +4,16 @@
     "viewAll": "View all",
     "learnMore": "Learn more",
     "joinNow": "Join now",
-    "readMore": "Read more"
+    "readMore": "Read more",
+    "filters": "Filters",
+    "clearAll": "Clear all",
+    "clear": "Clear",
+    "showMyLocation": "Show my location",
+    "locating": "Locating...",
+    "routesFound": "routes found",
+    "routeFound": "route found",
+    "noRoutesFound": "No routes found",
+    "noRoutesFoundDescription": "Try adjusting your filters or search term to find more routes."
   },
   "nav": {
     "events": "Events",
@@ -53,6 +62,73 @@
     "viewAllRoutes": "View all routes",
     "rating": "rating",
     "duration": "duration"
+  },
+  "routesPage": {
+    "badge": "Discover Routes",
+    "title": "Find your perfect trail",
+    "description": "Explore our curated collection of hiking routes across Europe. Filter by difficulty, duration, and features to find your ideal adventure.",
+    "searchPlaceholder": "Search routes...",
+    "trailStartingPoints": "Trail Starting Points",
+    "sortBy": {
+      "popular": "Most Popular",
+      "shortestDuration": "Shortest Duration",
+      "lowestElevation": "Lowest Elevation",
+      "highestDifficulty": "Highest Difficulty"
+    },
+    "filters": {
+      "difficulty": "Difficulty",
+      "technicalGrade": "Technical Grade (SAC)",
+      "distance": "Distance",
+      "duration": "Duration",
+      "elevationGain": "Elevation Gain",
+      "highlights": "Highlights",
+      "routeFeatures": "Route Features",
+      "facilities": "Facilities",
+      "routeType": "Route Type"
+    },
+    "difficulty": {
+      "easy": "Easy",
+      "moderate": "Moderate",
+      "hard": "Hard",
+      "expert": "Expert"
+    },
+    "highlights": {
+      "lakes": "Lakes",
+      "rivers": "Rivers",
+      "waterfalls": "Waterfalls",
+      "coastline": "Coastline",
+      "ruins": "Ruins",
+      "historicalSites": "Historical Sites"
+    },
+    "features": {
+      "viaFerrata": "Via Ferrata",
+      "climbing": "Climbing",
+      "canyoning": "Canyoning",
+      "ridges": "Ridges",
+      "mountainPasses": "Mountain Passes",
+      "avoidMainRoads": "Avoid Main Roads"
+    },
+    "facilities": {
+      "restaurants": "Restaurants",
+      "mountainHuts": "Mountain Huts"
+    },
+    "routeTypes": {
+      "loop": "Loop",
+      "outAndBack": "Out & Back",
+      "pointToPoint": "Point to Point"
+    }
+  },
+  "eventsPage": {
+    "title": "Events",
+    "filterByLocation": "Filter by location",
+    "filterByActivity": "Filter by activity",
+    "allLocations": "All Locations",
+    "allActivities": "All Activities",
+    "tomorrow": "Tomorrow",
+    "participants": "participants",
+    "waitlist": "waitlist",
+    "full": "Full",
+    "spotsLeft": "spots left"
   },
   "communities": {
     "badge": "Communities",

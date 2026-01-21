@@ -1,0 +1,81 @@
+{
+  "common": {
+    "search": "Rechercher",
+    "viewAll": "Voir tout",
+    "learnMore": "En savoir plus",
+    "joinNow": "Rejoindre",
+    "readMore": "Lire la suite"
+  },
+  "nav": {
+    "events": "Événements",
+    "routes": "Itinéraires",
+    "communities": "Communautés",
+    "addEvent": "Ajouter un événement"
+  },
+  "hero": {
+    "badge": "Rejoignez plus de 50 000 passionnés de plein air",
+    "titleStart": "Que l'Aventure",
+    "titleHighlight": "Commence",
+    "description": "Connectez-vous avec d'autres randonneurs, découvrez des sentiers à couper le souffle et créez des souvenirs inoubliables ensemble.",
+    "searchPlaceholder": "Rechercher un lieu ou un sentier...",
+    "statsRoutes": "Itinéraires actifs",
+    "statsCommunities": "Communautés",
+    "statsEvents": "Événements organisés",
+    "nextAdventure": "Prochaine aventure",
+    "nextAdventureDetails": "Alpes suisses, 15 janvier"
+  },
+  "activities": {
+    "title": "Explorer les activités",
+    "hiking": "Randonnée",
+    "climbing": "Escalade",
+    "cycling": "Cyclisme",
+    "trailRunning": "Trail",
+    "waterSports": "Sports nautiques",
+    "skiing": "Ski",
+    "camping": "Camping",
+    "photography": "Photographie"
+  },
+  "mission": {
+    "badge": "Notre Mission",
+    "title": "Créé par des aventuriers, pour des aventuriers",
+    "description": "Nous croyons que le plein air est accessible à tous. TrailMates est une plateforme communautaire où randonneurs, grimpeurs, cyclistes et passionnés de plein air se connectent, partagent leurs expériences et explorent ensemble — quel que soit leur niveau ou leur parcours.",
+    "guidelinesLink": "Lire nos règles communautaires →",
+    "inclusiveTitle": "Communauté Inclusive",
+    "inclusiveDescription": "Tout le monde est le bienvenu — des débutants faisant leurs premiers pas aux aventuriers chevronnés.",
+    "passionTitle": "Passion Partagée",
+    "passionDescription": "Connectez-vous avec des personnes qui partagent votre amour de la nature et des aventures en plein air.",
+    "safetyTitle": "Sécurité Avant Tout",
+    "safetyDescription": "Nous privilégions la sécurité sur les sentiers, le respect de la nature et l'entraide."
+  },
+  "routes": {
+    "badge": "Itinéraires en vedette",
+    "title": "Itinéraires populaires à explorer",
+    "viewAllRoutes": "Voir tous les itinéraires",
+    "rating": "note",
+    "duration": "durée"
+  },
+  "communities": {
+    "badge": "Communautés",
+    "title": "Trouvez votre équipe locale",
+    "viewAllCommunities": "Voir toutes les communautés",
+    "members": "membres"
+  },
+  "pastEvents": {
+    "badge": "Événements passés",
+    "title": "Les aventures que nous avons partagées",
+    "attendees": "participants"
+  },
+  "footer": {
+    "tagline": "Connecter les passionnés de plein air du monde entier. Trouvez votre aventure, rencontrez votre équipe.",
+    "platform": "Plateforme",
+    "company": "Entreprise",
+    "about": "À propos",
+    "contactUs": "Contactez-nous",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation",
+    "imprint": "Mentions légales",
+    "copyright": "© 2026 TrailMates. Tous droits réservés.",
+    "madeWith": "Fait avec",
+    "forAdventurers": "pour les aventuriers du monde entier"
+  }
+}

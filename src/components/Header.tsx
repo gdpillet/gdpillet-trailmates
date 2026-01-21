@@ -4,12 +4,15 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import profileImage from "@/assets/profile-gaston.jpeg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { t } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
@@ -17,9 +20,9 @@ const Header = () => {
   const location = useLocation();
 
   const navLinks = [
-    { href: "/events", label: "Events" },
-    { href: "/routes", label: "Routes" },
-    { href: "/communities", label: "Communities" },
+    { href: "/events", label: t.nav.events },
+    { href: "/routes", label: t.nav.routes },
+    { href: "/communities", label: t.nav.communities },
   ];
 
   return (
@@ -52,8 +55,9 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Theme Toggle & CTA Button & Profile */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Theme Toggle, Language Switcher, CTA Button & Profile */}
+          <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher />
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="p-2 rounded-lg hover:bg-muted transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
@@ -67,7 +71,7 @@ const Header = () => {
             </button>
             <Button variant="default" size="default" className="gap-2">
               <Plus className="w-4 h-4" />
-              Add Event
+              {t.nav.addEvent}
             </Button>
             <Link to="/profile" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-full">
               <div className="w-10 h-10 rounded-full bg-muted overflow-hidden ring-2 ring-border hover:ring-primary transition-colors">
@@ -85,6 +89,7 @@ const Header = () => {
 
           {/* Mobile Theme Toggle, Profile & Menu Toggle */}
           <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher />
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="p-2 rounded-lg hover:bg-muted transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
@@ -139,7 +144,7 @@ const Header = () => {
               ))}
               <Button variant="default" size="default" className="gap-2 w-full mt-2">
                 <Plus className="w-4 h-4" />
-                Add Event
+                {t.nav.addEvent}
               </Button>
             </nav>
           </div>

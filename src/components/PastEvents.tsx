@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight, MapPin, Calendar } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import event1 from "@/assets/event-1.jpg";
 import event2 from "@/assets/event-2.jpg";
 import event3 from "@/assets/event-3.jpg";
@@ -38,6 +39,7 @@ const events = [
 
 const PastEvents = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -55,22 +57,24 @@ const PastEvents = () => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-4">
-              Past Events
+              {t.pastEvents.badge}
             </span>
             <h2 className="heading-lg text-foreground">
-              Adventures we've shared
+              {t.pastEvents.title}
             </h2>
           </div>
           <div className="hidden sm:flex gap-2">
             <button
               onClick={() => scroll("left")}
               className="p-2 rounded-full bg-card border border-border hover:bg-accent transition-colors"
+              aria-label="Scroll left"
             >
               <ChevronLeft className="w-5 h-5 text-foreground" />
             </button>
             <button
               onClick={() => scroll("right")}
               className="p-2 rounded-full bg-card border border-border hover:bg-accent transition-colors"
+              aria-label="Scroll right"
             >
               <ChevronRight className="w-5 h-5 text-foreground" />
             </button>
@@ -94,7 +98,7 @@ const PastEvents = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute bottom-3 left-3 px-3 py-1.5 rounded-full bg-card/90 backdrop-blur-sm text-xs font-medium text-foreground">
-                  {event.attendees} attended
+                  {event.attendees} {t.pastEvents.attendees}
                 </div>
               </div>
               <div className="p-5 space-y-3">

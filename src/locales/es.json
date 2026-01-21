@@ -1,0 +1,81 @@
+{
+  "common": {
+    "search": "Buscar",
+    "viewAll": "Ver todo",
+    "learnMore": "Saber más",
+    "joinNow": "Únete ahora",
+    "readMore": "Leer más"
+  },
+  "nav": {
+    "events": "Eventos",
+    "routes": "Rutas",
+    "communities": "Comunidades",
+    "addEvent": "Añadir evento"
+  },
+  "hero": {
+    "badge": "Únete a más de 50.000 entusiastas del aire libre",
+    "titleStart": "Deja que la Aventura",
+    "titleHighlight": "Comience",
+    "description": "Conecta con otros excursionistas, descubre senderos impresionantes y crea recuerdos inolvidables juntos.",
+    "searchPlaceholder": "Buscar ubicación o sendero...",
+    "statsRoutes": "Rutas activas",
+    "statsCommunities": "Comunidades",
+    "statsEvents": "Eventos organizados",
+    "nextAdventure": "Próxima aventura",
+    "nextAdventureDetails": "Alpes suizos, 15 de enero"
+  },
+  "activities": {
+    "title": "Explorar actividades",
+    "hiking": "Senderismo",
+    "climbing": "Escalada",
+    "cycling": "Ciclismo",
+    "trailRunning": "Trail Running",
+    "waterSports": "Deportes acuáticos",
+    "skiing": "Esquí",
+    "camping": "Camping",
+    "photography": "Fotografía"
+  },
+  "mission": {
+    "badge": "Nuestra Misión",
+    "title": "Creado por aventureros, para aventureros",
+    "description": "Creemos que el aire libre es para todos. TrailMates es una plataforma impulsada por la comunidad donde excursionistas, escaladores, ciclistas y entusiastas del outdoor se conectan, comparten experiencias y exploran juntos — sin importar el nivel de habilidad o experiencia.",
+    "guidelinesLink": "Lee nuestras directrices comunitarias →",
+    "inclusiveTitle": "Comunidad Inclusiva",
+    "inclusiveDescription": "Todos son bienvenidos — desde principiantes dando sus primeros pasos hasta aventureros experimentados.",
+    "passionTitle": "Pasión Compartida",
+    "passionDescription": "Conecta con personas que comparten tu amor por la naturaleza y las aventuras al aire libre.",
+    "safetyTitle": "Seguridad Primero",
+    "safetyDescription": "Priorizamos la seguridad en los senderos, el respeto por la naturaleza y cuidarnos unos a otros."
+  },
+  "routes": {
+    "badge": "Rutas destacadas",
+    "title": "Rutas populares para explorar",
+    "viewAllRoutes": "Ver todas las rutas",
+    "rating": "calificación",
+    "duration": "duración"
+  },
+  "communities": {
+    "badge": "Comunidades",
+    "title": "Encuentra tu grupo local",
+    "viewAllCommunities": "Ver todas las comunidades",
+    "members": "miembros"
+  },
+  "pastEvents": {
+    "badge": "Eventos pasados",
+    "title": "Las aventuras que hemos compartido",
+    "attendees": "asistentes"
+  },
+  "footer": {
+    "tagline": "Conectando entusiastas del aire libre en todo el mundo. Encuentra tu aventura, conoce a tu grupo.",
+    "platform": "Plataforma",
+    "company": "Empresa",
+    "about": "Acerca de",
+    "contactUs": "Contáctanos",
+    "privacyPolicy": "Política de privacidad",
+    "termsOfService": "Términos de servicio",
+    "imprint": "Aviso legal",
+    "copyright": "© 2026 TrailMates. Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "forAdventurers": "para aventureros de todo el mundo"
+  }
+}

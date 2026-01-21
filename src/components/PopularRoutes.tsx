@@ -1,5 +1,6 @@
 import { MapPin, Star, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import routeSwissAlps from "@/assets/route-swiss-alps.jpg";
 import routeDolomites from "@/assets/route-dolomites.jpg";
 import routePyrenees from "@/assets/route-pyrenees.jpg";
@@ -41,20 +42,22 @@ const routes = [
 ];
 
 const PopularRoutes = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="section-padding bg-secondary/30">
       <div className="section-container">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-4">
-              Popular Routes
+              {t.routes.badge}
             </span>
             <h2 className="heading-lg text-foreground">
-              Explore iconic trails
+              {t.routes.title}
             </h2>
           </div>
           <Button variant="outline" className="self-start sm:self-auto">
-            View all routes
+            {t.routes.viewAllRoutes}
           </Button>
         </div>
 

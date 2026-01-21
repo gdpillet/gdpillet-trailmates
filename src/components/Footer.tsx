@@ -1,6 +1,9 @@
 import { Heart } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-foreground text-muted py-12">
       <div className="section-container">
@@ -14,32 +17,32 @@ const Footer = () => {
               <span className="font-bold text-xl text-background">TrailMates</span>
             </div>
             <p className="text-muted-foreground/80 max-w-sm">
-              Connecting outdoor enthusiasts worldwide. Find your adventure, meet your crew.
+              {t.footer.tagline}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-background mb-4">Platform</h4>
+            <h4 className="font-semibold text-background mb-4">{t.footer.platform}</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-muted-foreground/80 hover:text-background transition-colors">
-                  Events
+                <a href="/events" className="text-muted-foreground/80 hover:text-background transition-colors">
+                  {t.nav.events}
+                </a>
+              </li>
+              <li>
+                <a href="/routes" className="text-muted-foreground/80 hover:text-background transition-colors">
+                  {t.nav.routes}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground/80 hover:text-background transition-colors">
-                  Routes
+                  {t.nav.communities}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground/80 hover:text-background transition-colors">
-                  Communities
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground/80 hover:text-background transition-colors">
-                  Add Event
+                  {t.nav.addEvent}
                 </a>
               </li>
             </ul>
@@ -47,31 +50,31 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold text-background mb-4">Company</h4>
+            <h4 className="font-semibold text-background mb-4">{t.footer.company}</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-muted-foreground/80 hover:text-background transition-colors">
-                  About
+                  {t.footer.about}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground/80 hover:text-background transition-colors">
-                  Contact us
+                  {t.footer.contactUs}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground/80 hover:text-background transition-colors">
-                  Privacy Policy
+                  {t.footer.privacyPolicy}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground/80 hover:text-background transition-colors">
-                  Terms of Service
+                  {t.footer.termsOfService}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground/80 hover:text-background transition-colors">
-                  Imprint
+                  {t.footer.imprint}
                 </a>
               </li>
             </ul>
@@ -81,10 +84,10 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-muted-foreground/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground/60 text-sm">
-            © 2026 TrailMates. All rights reserved.
+            {t.footer.copyright}
           </p>
           <p className="flex items-center gap-1.5 text-muted-foreground/60 text-sm">
-            Made with <Heart className="w-4 h-4 text-primary fill-primary" /> for adventurers everywhere
+            {t.footer.madeWith} <Heart className="w-4 h-4 text-primary fill-primary" /> {t.footer.forAdventurers}
           </p>
         </div>
       </div>

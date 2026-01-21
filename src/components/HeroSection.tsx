@@ -1,9 +1,12 @@
 import { Search, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-hiking.jpg";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20">
       <div className="section-container w-full">
@@ -12,14 +15,14 @@ const HeroSection = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium">
-                Join 50,000+ outdoor enthusiasts
+                {t.hero.badge}
               </span>
               <h1 className="heading-xl text-foreground">
-                Let the Adventure{" "}
-                <span className="text-primary">Begin</span>
+                {t.hero.titleStart}{" "}
+                <span className="text-primary">{t.hero.titleHighlight}</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-                Connect with fellow hikers, discover breathtaking trails, and create unforgettable memories together.
+                {t.hero.description}
               </p>
             </div>
 
@@ -30,13 +33,13 @@ const HeroSection = () => {
                   <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <Input
                     type="text"
-                    placeholder="Search location or trail..."
+                    placeholder={t.hero.searchPlaceholder}
                     className="pl-10 h-12 border-0 bg-secondary/50 focus-visible:ring-1 focus-visible:ring-primary"
                   />
                 </div>
                 <Button size="lg" className="h-12 px-6 gap-2">
                   <Search className="w-4 h-4" />
-                  Search
+                  {t.common.search}
                 </Button>
               </div>
             </div>
@@ -45,15 +48,15 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-8 pt-4">
               <div>
                 <p className="text-3xl font-bold text-foreground">2,500+</p>
-                <p className="text-muted-foreground text-sm">Active Routes</p>
+                <p className="text-muted-foreground text-sm">{t.hero.statsRoutes}</p>
               </div>
               <div>
                 <p className="text-3xl font-bold text-foreground">180+</p>
-                <p className="text-muted-foreground text-sm">Communities</p>
+                <p className="text-muted-foreground text-sm">{t.hero.statsCommunities}</p>
               </div>
               <div>
                 <p className="text-3xl font-bold text-foreground">12K+</p>
-                <p className="text-muted-foreground text-sm">Events Hosted</p>
+                <p className="text-muted-foreground text-sm">{t.hero.statsEvents}</p>
               </div>
             </div>
 
@@ -64,8 +67,8 @@ const HeroSection = () => {
                   <span className="text-2xl">🏔️</span>
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">Next Adventure</p>
-                  <p className="text-sm text-muted-foreground">Swiss Alps, Jan 15</p>
+                  <p className="font-semibold text-foreground">{t.hero.nextAdventure}</p>
+                  <p className="text-sm text-muted-foreground">{t.hero.nextAdventureDetails}</p>
                 </div>
               </div>
             </div>

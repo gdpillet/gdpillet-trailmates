@@ -4,7 +4,16 @@
     "viewAll": "Vedi tutto",
     "learnMore": "Scopri di più",
     "joinNow": "Unisciti ora",
-    "readMore": "Leggi di più"
+    "readMore": "Leggi di più",
+    "filters": "Filtri",
+    "clearAll": "Cancella tutto",
+    "clear": "Cancella",
+    "showMyLocation": "Mostra la mia posizione",
+    "locating": "Localizzazione...",
+    "routesFound": "percorsi trovati",
+    "routeFound": "percorso trovato",
+    "noRoutesFound": "Nessun percorso trovato",
+    "noRoutesFoundDescription": "Prova a modificare i filtri o il termine di ricerca per trovare più percorsi."
   },
   "nav": {
     "events": "Eventi",
@@ -53,6 +62,73 @@
     "viewAllRoutes": "Vedi tutti i percorsi",
     "rating": "valutazione",
     "duration": "durata"
+  },
+  "routesPage": {
+    "badge": "Scopri i percorsi",
+    "title": "Trova il tuo sentiero perfetto",
+    "description": "Esplora la nostra collezione di percorsi escursionistici in tutta Europa. Filtra per difficoltà, durata e caratteristiche per trovare la tua avventura ideale.",
+    "searchPlaceholder": "Cerca percorsi...",
+    "trailStartingPoints": "Punti di partenza dei sentieri",
+    "sortBy": {
+      "popular": "Più popolari",
+      "shortestDuration": "Durata più breve",
+      "lowestElevation": "Dislivello più basso",
+      "highestDifficulty": "Difficoltà più alta"
+    },
+    "filters": {
+      "difficulty": "Difficoltà",
+      "technicalGrade": "Grado tecnico (CAS)",
+      "distance": "Distanza",
+      "duration": "Durata",
+      "elevationGain": "Dislivello positivo",
+      "highlights": "Punti di interesse",
+      "routeFeatures": "Caratteristiche del percorso",
+      "facilities": "Strutture",
+      "routeType": "Tipo di percorso"
+    },
+    "difficulty": {
+      "easy": "Facile",
+      "moderate": "Moderato",
+      "hard": "Difficile",
+      "expert": "Esperto"
+    },
+    "highlights": {
+      "lakes": "Laghi",
+      "rivers": "Fiumi",
+      "waterfalls": "Cascate",
+      "coastline": "Costa",
+      "ruins": "Rovine",
+      "historicalSites": "Siti storici"
+    },
+    "features": {
+      "viaFerrata": "Via Ferrata",
+      "climbing": "Arrampicata",
+      "canyoning": "Canyoning",
+      "ridges": "Creste",
+      "mountainPasses": "Passi di montagna",
+      "avoidMainRoads": "Evita strade principali"
+    },
+    "facilities": {
+      "restaurants": "Ristoranti",
+      "mountainHuts": "Rifugi di montagna"
+    },
+    "routeTypes": {
+      "loop": "Anello",
+      "outAndBack": "Andata e ritorno",
+      "pointToPoint": "Da punto a punto"
+    }
+  },
+  "eventsPage": {
+    "title": "Eventi",
+    "filterByLocation": "Filtra per località",
+    "filterByActivity": "Filtra per attività",
+    "allLocations": "Tutte le località",
+    "allActivities": "Tutte le attività",
+    "tomorrow": "Domani",
+    "participants": "partecipanti",
+    "waitlist": "lista d'attesa",
+    "full": "Completo",
+    "spotsLeft": "posti disponibili"
   },
   "communities": {
     "badge": "Comunità",

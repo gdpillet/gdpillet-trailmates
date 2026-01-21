@@ -153,6 +153,28 @@ function UserLocationMarker({ position }: UserLocationMarkerProps) {
   );
 }
 
+interface MapContentProps {
+  routes: HikingRoute[];
+  userLocation?: [number, number] | null;
+  onRouteClick?: (route: HikingRoute) => void;
+}
+
+function MapContent({ routes, userLocation, onRouteClick }: MapContentProps) {
+  return (
+    <>
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <FitBoundsHandler routes={routes} userLocation={userLocation} />
+      {userLocation && <UserLocationMarker position={userLocation} />}
+      {routes.map((route) => (
+        <RouteMarker key={route.id} route={route} onRouteClick={onRouteClick} />
+      ))}
+    </>
+  );
+}
+
 interface RoutesMapProps {
   routes: HikingRoute[];
   onRouteClick?: (route: HikingRoute) => void;
@@ -183,15 +205,11 @@ function RoutesMap({ routes, onRouteClick, userLocation, className = '' }: Route
         style={{ minHeight: '280px' }}
         scrollWheelZoom={true}
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        <MapContent 
+          routes={routesWithCoords} 
+          userLocation={userLocation} 
+          onRouteClick={onRouteClick} 
         />
-        <FitBoundsHandler routes={routesWithCoords} userLocation={userLocation} />
-        {userLocation ? <UserLocationMarker position={userLocation} /> : null}
-        {routesWithCoords.map((route) => (
-          <RouteMarker key={route.id} route={route} onRouteClick={onRouteClick} />
-        ))}
       </MapContainer>
     </div>
   );

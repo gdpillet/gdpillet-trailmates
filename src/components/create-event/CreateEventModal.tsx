@@ -39,6 +39,7 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
     hasUnsavedChanges,
     clearForm,
     setActivityType,
+    setRouteId,
     setDate,
     setTime,
     getTotalSteps,
@@ -121,7 +122,7 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
           </header>
 
           {/* Content */}
-          <main className="flex-1 py-8">
+          <main className="flex-1 flex flex-col overflow-hidden">
             {currentStep === 1 && (
               <ActivityTypeStep
                 selectedActivity={formData.activityType}
@@ -130,7 +131,11 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
               />
             )}
             {currentStep === 2 && (
-              <RouteSelectionStep onContinue={goToNextStep} />
+              <RouteSelectionStep
+                selectedRouteId={formData.routeId}
+                onSelectRoute={setRouteId}
+                onContinue={goToNextStep}
+              />
             )}
             {currentStep === 3 && (
               <DateTimeStep

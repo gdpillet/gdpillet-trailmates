@@ -14,7 +14,78 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      events: {
+        Row: {
+          activity_difficulty: string | null
+          activity_type: string
+          cover_image: string
+          created_at: string
+          departure_place: string
+          departure_transport: string
+          duration: string
+          event_date: string
+          id: string
+          organizer_avatar: string
+          organizer_name: string
+          participant_avatars: string[]
+          participants_count: number
+          participants_max: number
+          participants_waitlist: number
+          start_time: string
+          stats_distance: string
+          stats_elevation: string
+          stats_total_height: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          activity_difficulty?: string | null
+          activity_type: string
+          cover_image: string
+          created_at?: string
+          departure_place: string
+          departure_transport: string
+          duration: string
+          event_date: string
+          id?: string
+          organizer_avatar: string
+          organizer_name: string
+          participant_avatars?: string[]
+          participants_count?: number
+          participants_max: number
+          participants_waitlist?: number
+          start_time: string
+          stats_distance: string
+          stats_elevation: string
+          stats_total_height: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          activity_difficulty?: string | null
+          activity_type?: string
+          cover_image?: string
+          created_at?: string
+          departure_place?: string
+          departure_transport?: string
+          duration?: string
+          event_date?: string
+          id?: string
+          organizer_avatar?: string
+          organizer_name?: string
+          participant_avatars?: string[]
+          participants_count?: number
+          participants_max?: number
+          participants_waitlist?: number
+          start_time?: string
+          stats_distance?: string
+          stats_elevation?: string
+          stats_total_height?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

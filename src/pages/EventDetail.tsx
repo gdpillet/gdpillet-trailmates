@@ -94,7 +94,7 @@ const EventDetail = () => {
 
       <main className="pt-24 pb-16">
         <div className="section-container">
-          <div className="flex flex-col lg:flex-row gap-6 items-start">
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
             {/* Gallery Section */}
             <div className="w-full lg:w-[379px] flex-shrink-0 order-2 lg:order-1">
               <div className="flex flex-wrap gap-2.5">
@@ -144,7 +144,7 @@ const EventDetail = () => {
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 max-w-full lg:max-w-[602px] py-6 order-1 lg:order-2">
+            <div className="flex-1 min-w-0 py-6 order-1 lg:order-2">
               {/* Event Header */}
               <div className="flex flex-col gap-[52px] mb-10">
                 <div>
@@ -372,7 +372,7 @@ const EventDetail = () => {
             </div>
 
             {/* Sidebar */}
-            <div className="w-full lg:w-[400px] flex-shrink-0 lg:sticky lg:top-24 order-3">
+            <div className="w-full lg:w-[320px] xl:w-[360px] flex-shrink-0 lg:sticky lg:top-24 order-3">
               <div className="bg-muted rounded-[13px] p-6">
                 {/* Organizer */}
                 <div className="pb-6 border-b border-border mb-6">

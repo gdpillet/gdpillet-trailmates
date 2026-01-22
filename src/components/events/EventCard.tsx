@@ -13,37 +13,9 @@ import {
   ArrowUpRight,
   MoveHorizontal,
 } from "lucide-react";
+import { EventData } from "@/hooks/useEvents";
 
-export interface EventData {
-  id: string;
-  title: string;
-  coverImage: string;
-  startTime: string;
-  duration: string;
-  organizer: {
-    name: string;
-    avatar: string;
-  };
-  departure: {
-    place: string;
-    transport: "train" | "bus" | "carpool" | "none";
-  };
-  activity: {
-    type: "hiking" | "cycling" | "ski-touring" | "bouldering" | "social";
-    difficulty?: string;
-  };
-  stats: {
-    distance: string;
-    elevation: string;
-    totalHeight: string;
-  };
-  participants: {
-    count: number;
-    max: number;
-    waitlist: number;
-    avatars: string[];
-  };
-}
+export type { EventData } from "@/hooks/useEvents";
 
 const activityIcons = {
   hiking: Mountain,

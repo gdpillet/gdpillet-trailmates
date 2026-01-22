@@ -1,9 +1,5 @@
-import EventCard, { EventData } from "./EventCard";
-
-interface EventGroup {
-  date: string;
-  events: EventData[];
-}
+import EventCard from "./EventCard";
+import { EventGroup } from "@/hooks/useEvents";
 
 interface EventListProps {
   eventGroups: EventGroup[];

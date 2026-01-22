@@ -57,10 +57,10 @@ export function RouteSelectionStep({ selectedRouteId, onSelectRoute, onContinue 
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 overflow-hidden px-4">
-        <div className="flex gap-6 h-full max-h-[calc(100vh-320px)]">
+      <div className="flex-1 overflow-hidden">
+        <div className="flex gap-6 lg:gap-8 h-full max-h-[calc(100vh-320px)] px-4 lg:px-6">
           {/* Filters Panel - Desktop only */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block shrink-0">
             <ScrollArea className="h-full">
               <RouteFiltersPanel
                 filters={filters}
@@ -99,7 +99,7 @@ export function RouteSelectionStep({ selectedRouteId, onSelectRoute, onContinue 
             <ScrollArea className="flex-1">
               {filteredRoutes.length > 0 ? (
                 <div
-                  className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 pb-4 pr-2"
+                  className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 pb-4 pr-4"
                   role="list"
                   aria-label="Available routes"
                 >

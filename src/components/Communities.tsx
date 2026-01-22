@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,11 +12,11 @@ const communities = [
   { city: "Vancouver", country: "Canada", members: 3780, flag: "🇨🇦" },
 ];
 
-const Communities = () => {
+const Communities = forwardRef<HTMLElement>(function Communities(_, ref) {
   const { t } = useLanguage();
 
   return (
-    <section className="section-padding">
+    <section ref={ref} className="section-padding">
       <div className="section-container">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
@@ -56,6 +57,6 @@ const Communities = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Communities;

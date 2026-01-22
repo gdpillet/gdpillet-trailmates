@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, forwardRef } from "react";
 import { ChevronLeft, ChevronRight, MapPin, Calendar } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import event1 from "@/assets/event-1.jpg";
@@ -37,7 +37,7 @@ const events = [
   },
 ];
 
-const PastEvents = () => {
+const PastEvents = forwardRef<HTMLElement>(function PastEvents(_, ref) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
 
@@ -52,7 +52,7 @@ const PastEvents = () => {
   };
 
   return (
-    <section className="section-padding bg-secondary/30">
+    <section ref={ref} className="section-padding bg-secondary/30">
       <div className="section-container">
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -120,6 +120,6 @@ const PastEvents = () => {
       </div>
     </section>
   );
-};
+});
 
 export default PastEvents;

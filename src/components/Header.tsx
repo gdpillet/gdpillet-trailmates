@@ -6,11 +6,13 @@ import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { CreateEventModal } from "@/components/create-event/CreateEventModal";
 import profileImage from "@/assets/profile-gaston.jpeg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isCreateEventOpen, setIsCreateEventOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const { t } = useLanguage();
 
@@ -69,7 +71,12 @@ const Header = () => {
                 <Moon className="w-5 h-5 text-foreground" />
               ))}
             </button>
-            <Button variant="default" size="default" className="gap-2">
+            <Button
+              variant="default"
+              size="default"
+              className="gap-2"
+              onClick={() => setIsCreateEventOpen(true)}
+            >
               <Plus className="w-4 h-4" />
               {t.nav.addEvent}
             </Button>
@@ -142,7 +149,15 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button variant="default" size="default" className="gap-2 w-full mt-2">
+              <Button
+                variant="default"
+                size="default"
+                className="gap-2 w-full mt-2"
+                onClick={() => {
+                  setIsCreateEventOpen(true);
+                  setIsMenuOpen(false);
+                }}
+              >
                 <Plus className="w-4 h-4" />
                 {t.nav.addEvent}
               </Button>
@@ -150,6 +165,11 @@ const Header = () => {
           </div>
         )}
       </div>
+
+      <CreateEventModal
+        open={isCreateEventOpen}
+        onOpenChange={setIsCreateEventOpen}
+      />
     </header>
   );
 };

@@ -22,19 +22,33 @@ export type Database = {
           created_at: string
           departure_place: string
           departure_transport: string
+          description: string | null
           duration: string
+          equipment: string[] | null
           event_date: string
+          gallery_images: string[] | null
           id: string
+          meeting_location: string | null
+          meeting_note: string | null
+          meeting_time: string | null
+          meeting_transport: string | null
           organizer_avatar: string
           organizer_name: string
           participant_avatars: string[]
           participants_count: number
           participants_max: number
           participants_waitlist: number
+          route_ascent: string | null
+          route_descent: string | null
+          route_distance: string | null
+          route_duration: string | null
+          route_highest_point: string | null
+          route_rating: string | null
           start_time: string
           stats_distance: string
           stats_elevation: string
           stats_total_height: string
+          ticket_price: string | null
           title: string
           updated_at: string
         }
@@ -45,19 +59,33 @@ export type Database = {
           created_at?: string
           departure_place: string
           departure_transport: string
+          description?: string | null
           duration: string
+          equipment?: string[] | null
           event_date: string
+          gallery_images?: string[] | null
           id?: string
+          meeting_location?: string | null
+          meeting_note?: string | null
+          meeting_time?: string | null
+          meeting_transport?: string | null
           organizer_avatar: string
           organizer_name: string
           participant_avatars?: string[]
           participants_count?: number
           participants_max: number
           participants_waitlist?: number
+          route_ascent?: string | null
+          route_descent?: string | null
+          route_distance?: string | null
+          route_duration?: string | null
+          route_highest_point?: string | null
+          route_rating?: string | null
           start_time: string
           stats_distance: string
           stats_elevation: string
           stats_total_height: string
+          ticket_price?: string | null
           title: string
           updated_at?: string
         }
@@ -68,19 +96,33 @@ export type Database = {
           created_at?: string
           departure_place?: string
           departure_transport?: string
+          description?: string | null
           duration?: string
+          equipment?: string[] | null
           event_date?: string
+          gallery_images?: string[] | null
           id?: string
+          meeting_location?: string | null
+          meeting_note?: string | null
+          meeting_time?: string | null
+          meeting_transport?: string | null
           organizer_avatar?: string
           organizer_name?: string
           participant_avatars?: string[]
           participants_count?: number
           participants_max?: number
           participants_waitlist?: number
+          route_ascent?: string | null
+          route_descent?: string | null
+          route_distance?: string | null
+          route_duration?: string | null
+          route_highest_point?: string | null
+          route_rating?: string | null
           start_time?: string
           stats_distance?: string
           stats_elevation?: string
           stats_total_height?: string
+          ticket_price?: string | null
           title?: string
           updated_at?: string
         }

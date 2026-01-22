@@ -34,6 +34,27 @@ export interface EventData {
   };
 }
 
+export interface EventDetailData extends EventData {
+  description?: string;
+  meetingInfo: {
+    location?: string;
+    time?: string;
+    transport?: string;
+    ticketPrice?: string;
+    note?: string;
+  };
+  equipment: string[];
+  routeDetails: {
+    distance?: string;
+    ascent?: string;
+    descent?: string;
+    highestPoint?: string;
+    duration?: string;
+    rating?: string;
+  };
+  galleryImages: string[];
+}
+
 interface DbEvent {
   id: string;
   title: string;
@@ -54,6 +75,20 @@ interface DbEvent {
   participants_max: number;
   participants_waitlist: number;
   participant_avatars: string[];
+  description: string | null;
+  meeting_location: string | null;
+  meeting_time: string | null;
+  meeting_transport: string | null;
+  ticket_price: string | null;
+  meeting_note: string | null;
+  equipment: string[] | null;
+  route_distance: string | null;
+  route_ascent: string | null;
+  route_descent: string | null;
+  route_highest_point: string | null;
+  route_duration: string | null;
+  route_rating: string | null;
+  gallery_images: string[] | null;
 }
 
 const mapDbEventToEventData = (dbEvent: DbEvent): EventData => ({
@@ -88,6 +123,28 @@ const mapDbEventToEventData = (dbEvent: DbEvent): EventData => ({
   },
 });
 
+const mapDbEventToEventDetailData = (dbEvent: DbEvent): EventDetailData => ({
+  ...mapDbEventToEventData(dbEvent),
+  description: dbEvent.description ?? undefined,
+  meetingInfo: {
+    location: dbEvent.meeting_location ?? undefined,
+    time: dbEvent.meeting_time ?? undefined,
+    transport: dbEvent.meeting_transport ?? undefined,
+    ticketPrice: dbEvent.ticket_price ?? undefined,
+    note: dbEvent.meeting_note ?? undefined,
+  },
+  equipment: dbEvent.equipment ?? [],
+  routeDetails: {
+    distance: dbEvent.route_distance ?? undefined,
+    ascent: dbEvent.route_ascent ?? undefined,
+    descent: dbEvent.route_descent ?? undefined,
+    highestPoint: dbEvent.route_highest_point ?? undefined,
+    duration: dbEvent.route_duration ?? undefined,
+    rating: dbEvent.route_rating ?? undefined,
+  },
+  galleryImages: dbEvent.gallery_images ?? [],
+});
+
 const formatEventDate = (dateStr: string): string => {
   const date = parseISO(dateStr);
   if (isToday(date)) {
@@ -96,6 +153,11 @@ const formatEventDate = (dateStr: string): string => {
   if (isTomorrow(date)) {
     return `Tomorrow, ${format(date, "EEEE")}`;
   }
+  return format(date, "MMM d, EEEE");
+};
+
+export const formatEventDateDisplay = (dateStr: string): string => {
+  const date = parseISO(dateStr);
   return format(date, "MMM d, EEEE");
 };
 
@@ -120,6 +182,34 @@ export const useEvents = () => {
 
       return (data as DbEvent[]).map(mapDbEventToEventData);
     },
+  });
+};
+
+export const useEvent = (eventId: string | undefined) => {
+  return useQuery({
+    queryKey: ["event", eventId],
+    queryFn: async () => {
+      if (!eventId) {
+        throw new Error("Event ID is required");
+      }
+
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .eq("id", eventId)
+        .maybeSingle();
+
+      if (error) {
+        throw error;
+      }
+
+      if (!data) {
+        throw new Error("Event not found");
+      }
+
+      return mapDbEventToEventDetailData(data as DbEvent);
+    },
+    enabled: !!eventId,
   });
 };
 

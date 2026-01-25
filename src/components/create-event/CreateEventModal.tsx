@@ -23,8 +23,13 @@ import { StepProgress } from './StepProgress';
 import { ActivityTypeStep } from './ActivityTypeStep';
 import { RouteSelectionStep } from './RouteSelectionStep';
 import { DateTimeStep } from './DateTimeStep';
+import { EventDetailsStep } from './EventDetailsStep';
+import { DescriptionStep } from './DescriptionStep';
+import { TransportationStep } from './TransportationStep';
+import { ReviewStep } from './ReviewStep';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { ROUTE_BASED_ACTIVITIES } from './types';
 
 interface CreateEventModalProps {
   open: boolean;
@@ -33,6 +38,7 @@ interface CreateEventModalProps {
 
 export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) {
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const {
@@ -44,7 +50,16 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
     setRouteId,
     setDate,
     setTime,
+    setEventName,
+    setMaxParticipants,
+    setDescription,
+    setAddDisclaimer,
+    setDisclaimerText,
+    setTransportType,
+    setPublicTransport,
+    setCarTransport,
     getTotalSteps,
+    getLogicalStep,
     goToNextStep,
     goToPreviousStep,
   } = useCreateEventForm();
@@ -77,9 +92,32 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
       return;
     }
 
+    setIsSubmitting(true);
+
     try {
+      // Determine departure info based on transport type
+      let departurePlace = 'TBD';
+      let departureTransport = 'none';
+      let ticketPrice: string | null = null;
+      let meetingLocation: string | null = null;
+      let meetingNote: string | null = null;
+
+      if (formData.transportType === 'public') {
+        departurePlace = formData.publicTransport.meetingPoint || 'TBD';
+        departureTransport = 'train'; // Use 'train' as default for public transport
+        ticketPrice = formData.publicTransport.ticketCost || null;
+        meetingNote = formData.publicTransport.instructions || null;
+      } else if (formData.transportType === 'car') {
+        departurePlace = formData.carTransport.pickupLocation || 'TBD';
+        departureTransport = 'carpool';
+        ticketPrice = formData.carTransport.fuelCost || null;
+        meetingNote = formData.carTransport.carDescription || null;
+      } else if (formData.transportType === 'none') {
+        departureTransport = 'none';
+      }
+
       const { error } = await supabase.from('events').insert({
-        title: `New ${formData.activityType.charAt(0).toUpperCase() + formData.activityType.slice(1)} Event`,
+        title: formData.eventName || `New ${formData.activityType.charAt(0).toUpperCase() + formData.activityType.slice(1)} Event`,
         activity_type: formData.activityType,
         event_date: format(formData.date, 'yyyy-MM-dd'),
         start_time: formData.time,
@@ -87,19 +125,23 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
         cover_image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=200&h=150&fit=crop',
         organizer_name: 'You',
         organizer_avatar: 'https://i.pravatar.cc/40?img=1',
-        departure_place: 'TBD',
-        departure_transport: 'none',
+        departure_place: departurePlace,
+        departure_transport: departureTransport,
+        meeting_location: meetingLocation,
+        meeting_note: meetingNote,
+        ticket_price: ticketPrice,
         stats_distance: 'TBD',
         stats_elevation: 'TBD',
         stats_total_height: 'TBD',
-        participants_max: 10,
+        participants_max: formData.maxParticipants,
+        description: formData.description || null,
       });
 
       if (error) throw error;
 
       toast({
-        title: 'Event created!',
-        description: 'Your adventure is ready. Invite your crew!',
+        title: 'Event published!',
+        description: 'Your adventure is live. Time to invite your crew! 🎉',
       });
       clearForm();
       onOpenChange(false);
@@ -107,14 +149,114 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
       console.error('Failed to create event:', error);
       toast({
         title: 'Something went wrong',
-        description: 'Could not create your event. Please try again.',
+        description: 'Could not publish your event. Please try again.',
         variant: 'destructive',
       });
+    } finally {
+      setIsSubmitting(false);
     }
   }, [formData, clearForm, onOpenChange, toast]);
 
   const totalSteps = getTotalSteps();
+  const logicalStep = getLogicalStep(currentStep);
   const showBackButton = currentStep > 1;
+
+  // Determine which step component to render
+  const isRouteBased = formData.activityType && ROUTE_BASED_ACTIVITIES.includes(formData.activityType);
+  const finalStep = isRouteBased ? 7 : 6;
+
+  const renderStep = () => {
+    // Step 1: Activity Type (always)
+    if (currentStep === 1) {
+      return (
+        <ActivityTypeStep
+          selectedActivity={formData.activityType}
+          onSelect={setActivityType}
+          onContinue={goToNextStep}
+        />
+      );
+    }
+
+    // Step 2: Route Selection (only for route-based activities)
+    if (currentStep === 2 && isRouteBased) {
+      return (
+        <RouteSelectionStep
+          selectedRouteId={formData.routeId}
+          onSelectRoute={setRouteId}
+          onContinue={goToNextStep}
+        />
+      );
+    }
+
+    // Step 3: Date & Time
+    if (currentStep === 3) {
+      return (
+        <DateTimeStep
+          selectedDate={formData.date}
+          selectedTime={formData.time}
+          onDateChange={setDate}
+          onTimeChange={setTime}
+          onContinue={goToNextStep}
+        />
+      );
+    }
+
+    // Step 4: Event Details
+    if (currentStep === 4) {
+      return (
+        <EventDetailsStep
+          eventName={formData.eventName}
+          maxParticipants={formData.maxParticipants}
+          onEventNameChange={setEventName}
+          onMaxParticipantsChange={setMaxParticipants}
+          onContinue={goToNextStep}
+        />
+      );
+    }
+
+    // Step 5: Description
+    if (currentStep === 5) {
+      return (
+        <DescriptionStep
+          description={formData.description}
+          addDisclaimer={formData.addDisclaimer}
+          disclaimerText={formData.disclaimerText}
+          onDescriptionChange={setDescription}
+          onAddDisclaimerChange={setAddDisclaimer}
+          onDisclaimerTextChange={setDisclaimerText}
+          onContinue={goToNextStep}
+        />
+      );
+    }
+
+    // Step 6: Transportation
+    if (currentStep === 6) {
+      return (
+        <TransportationStep
+          transportType={formData.transportType}
+          publicTransport={formData.publicTransport}
+          carTransport={formData.carTransport}
+          onTransportTypeChange={setTransportType}
+          onPublicTransportChange={setPublicTransport}
+          onCarTransportChange={setCarTransport}
+          onContinue={goToNextStep}
+        />
+      );
+    }
+
+    // Step 7 (or 6 for non-route-based): Review
+    if (currentStep === finalStep) {
+      return (
+        <ReviewStep
+          formData={formData}
+          onPublish={handleSubmit}
+          isSubmitting={isSubmitting}
+        />
+      );
+    }
+
+    return null;
+  };
 
   return (
     <>
@@ -143,7 +285,7 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
               </div>
 
               {/* Progress */}
-              <StepProgress currentStep={currentStep} totalSteps={totalSteps} />
+              <StepProgress currentStep={logicalStep} totalSteps={totalSteps} />
 
               {/* Close Button */}
               <div className="w-24 flex justify-end">
@@ -161,29 +303,7 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
 
           {/* Content */}
           <main className="flex-1 flex flex-col overflow-hidden">
-            {currentStep === 1 && (
-              <ActivityTypeStep
-                selectedActivity={formData.activityType}
-                onSelect={setActivityType}
-                onContinue={goToNextStep}
-              />
-            )}
-            {currentStep === 2 && (
-              <RouteSelectionStep
-                selectedRouteId={formData.routeId}
-                onSelectRoute={setRouteId}
-                onContinue={goToNextStep}
-              />
-            )}
-            {currentStep === 3 && (
-              <DateTimeStep
-                selectedDate={formData.date}
-                selectedTime={formData.time}
-                onDateChange={setDate}
-                onTimeChange={setTime}
-                onSubmit={handleSubmit}
-              />
-            )}
+            {renderStep()}
           </main>
         </DialogContent>
       </Dialog>

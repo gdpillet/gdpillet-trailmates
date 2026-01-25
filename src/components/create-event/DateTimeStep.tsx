@@ -10,7 +10,7 @@ interface DateTimeStepProps {
   selectedTime: string | null;
   onDateChange: (date: Date | undefined) => void;
   onTimeChange: (time: string) => void;
-  onSubmit: () => void;
+  onContinue: () => void;
 }
 
 export function DateTimeStep({
@@ -18,7 +18,7 @@ export function DateTimeStep({
   selectedTime,
   onDateChange,
   onTimeChange,
-  onSubmit,
+  onContinue,
 }: DateTimeStepProps) {
   const [timeValue, setTimeValue] = useState(selectedTime || '');
 
@@ -72,11 +72,11 @@ export function DateTimeStep({
 
         <Button
           size="lg"
-          onClick={onSubmit}
+          onClick={onContinue}
           disabled={!isValid}
           className="px-10"
         >
-          Create Event
+          Continue
         </Button>
       </div>
     </div>

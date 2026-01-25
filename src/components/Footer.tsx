@@ -1,12 +1,11 @@
-import { forwardRef } from "react";
 import { Heart } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const Footer = forwardRef<HTMLElement>(function Footer(_, ref) {
+const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer ref={ref} className="bg-foreground text-muted py-12">
+    <footer className="bg-foreground text-muted py-12">
       <div className="section-container">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
@@ -94,6 +93,6 @@ const Footer = forwardRef<HTMLElement>(function Footer(_, ref) {
       </div>
     </footer>
   );
-});
+};
 
 export default Footer;

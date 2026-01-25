@@ -81,7 +81,7 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
   return (
     <>
       <Dialog open={open} onOpenChange={(isOpen) => !isOpen && handleClose()}>
-        <DialogContent className="max-w-none w-full h-full sm:rounded-none border-0 p-0 gap-0 overflow-auto">
+        <DialogContent className="max-w-none w-full h-full sm:rounded-none border-0 p-0 gap-0 overflow-auto bg-background">
           <VisuallyHidden>
             <DialogTitle>Create Event</DialogTitle>
           </VisuallyHidden>

@@ -182,7 +182,8 @@ export function useCreateEventForm() {
     if (!formData.activityType) return;
 
     const isRouteBased = ROUTE_BASED_ACTIVITIES.includes(formData.activityType);
-    const maxStep = isRouteBased ? 7 : 6;
+    // Always use 7 as maxStep - non-route-based just skips step 2
+    const maxStep = 7;
 
     if (currentStep === 1) {
       if (isRouteBased) {

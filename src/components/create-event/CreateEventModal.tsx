@@ -163,7 +163,8 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
 
   // Determine which step component to render
   const isRouteBased = formData.activityType && ROUTE_BASED_ACTIVITIES.includes(formData.activityType);
-  const finalStep = isRouteBased ? 7 : 6;
+  // Review is always step 7 - non-route-based just skips step 2
+  const finalStep = 7;
 
   const renderStep = () => {
     // Step 1: Activity Type (always)

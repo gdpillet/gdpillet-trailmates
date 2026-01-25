@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { X, ArrowLeft } from 'lucide-react';
+import { format } from 'date-fns';
 import {
   Dialog,
   DialogContent,
@@ -23,6 +24,7 @@ import { ActivityTypeStep } from './ActivityTypeStep';
 import { RouteSelectionStep } from './RouteSelectionStep';
 import { DateTimeStep } from './DateTimeStep';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 interface CreateEventModalProps {
   open: boolean;
@@ -65,15 +67,51 @@ export function CreateEventModal({ open, onOpenChange }: CreateEventModalProps) 
     setShowConfirmDialog(false);
   }, []);
 
-  const handleSubmit = useCallback(() => {
-    // TODO: Implement actual event creation
-    toast({
-      title: 'Event created!',
-      description: 'Your adventure is ready. Invite your crew!',
-    });
-    clearForm();
-    onOpenChange(false);
-  }, [clearForm, onOpenChange, toast]);
+  const handleSubmit = useCallback(async () => {
+    if (!formData.date || !formData.time || !formData.activityType) {
+      toast({
+        title: 'Missing information',
+        description: 'Please fill in all required fields.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    try {
+      const { error } = await supabase.from('events').insert({
+        title: `New ${formData.activityType.charAt(0).toUpperCase() + formData.activityType.slice(1)} Event`,
+        activity_type: formData.activityType,
+        event_date: format(formData.date, 'yyyy-MM-dd'),
+        start_time: formData.time,
+        duration: '1 day',
+        cover_image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=200&h=150&fit=crop',
+        organizer_name: 'You',
+        organizer_avatar: 'https://i.pravatar.cc/40?img=1',
+        departure_place: 'TBD',
+        departure_transport: 'none',
+        stats_distance: 'TBD',
+        stats_elevation: 'TBD',
+        stats_total_height: 'TBD',
+        participants_max: 10,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: 'Event created!',
+        description: 'Your adventure is ready. Invite your crew!',
+      });
+      clearForm();
+      onOpenChange(false);
+    } catch (error) {
+      console.error('Failed to create event:', error);
+      toast({
+        title: 'Something went wrong',
+        description: 'Could not create your event. Please try again.',
+        variant: 'destructive',
+      });
+    }
+  }, [formData, clearForm, onOpenChange, toast]);
 
   const totalSteps = getTotalSteps();
   const showBackButton = currentStep > 1;

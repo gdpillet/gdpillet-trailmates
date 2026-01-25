@@ -1,4 +1,4 @@
-export type ActivityType = 'hiking' | 'cycling' | 'climbing' | 'skiing' | 'bouldering' | 'social';
+export type ActivityType = 'hiking' | 'cycling' | 'ski-touring' | 'bouldering' | 'social';
 
 export type TransportType = 'public' | 'car' | 'none';
 
@@ -29,13 +29,12 @@ export interface CreateEventFormData {
   carTransport: CarTransportDetails;
 }
 
-export const ROUTE_BASED_ACTIVITIES: ActivityType[] = ['hiking', 'cycling', 'climbing'];
+export const ROUTE_BASED_ACTIVITIES: ActivityType[] = ['hiking', 'cycling'];
 
 export const ACTIVITY_OPTIONS: { type: ActivityType; label: string; icon: string }[] = [
   { type: 'hiking', label: 'Hiking', icon: 'Mountain' },
   { type: 'cycling', label: 'Cycling', icon: 'Bike' },
-  { type: 'climbing', label: 'Climbing', icon: 'Cable' },
-  { type: 'skiing', label: 'Skiing', icon: 'Snowflake' },
+  { type: 'ski-touring', label: 'Ski Touring', icon: 'Snowflake' },
   { type: 'bouldering', label: 'Bouldering', icon: 'Grip' },
   { type: 'social', label: 'Social', icon: 'Users' },
 ];

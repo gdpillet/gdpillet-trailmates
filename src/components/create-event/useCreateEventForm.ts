@@ -1,17 +1,20 @@
 import { useState, useEffect, useCallback } from 'react';
 import { CreateEventFormData, ActivityType, ROUTE_BASED_ACTIVITIES } from './types';
+import { nextSaturday } from 'date-fns';
 
 const STORAGE_KEY = 'create-event-draft';
 
-const initialFormData: CreateEventFormData = {
-  activityType: null,
-  routeId: null,
-  date: null,
-  time: null,
-};
+function getDefaultFormData(): CreateEventFormData {
+  return {
+    activityType: null,
+    routeId: null,
+    date: nextSaturday(new Date()),
+    time: '09:00',
+  };
+}
 
 export function useCreateEventForm() {
-  const [formData, setFormData] = useState<CreateEventFormData>(initialFormData);
+  const [formData, setFormData] = useState<CreateEventFormData>(getDefaultFormData);
   const [currentStep, setCurrentStep] = useState(1);
 
   // Load from localStorage on mount
@@ -53,7 +56,7 @@ export function useCreateEventForm() {
   }, [formData]);
 
   const clearForm = useCallback(() => {
-    setFormData(initialFormData);
+    setFormData(getDefaultFormData());
     setCurrentStep(1);
     localStorage.removeItem(STORAGE_KEY);
   }, []);
